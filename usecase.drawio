@@ -16,7 +16,7 @@
           <mxGeometry x="130" y="480" width="30" height="60" as="geometry" />
         </mxCell>
         <mxCell id="PAyLya4S3lvHNLVmTNVt-5" value="se connecter" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="530" y="240" width="100" height="80" as="geometry" />
+          <mxGeometry x="630" y="60" width="100" height="80" as="geometry" />
         </mxCell>
         <mxCell id="PAyLya4S3lvHNLVmTNVt-6" value="créer compte" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="320" y="460" width="120" height="80" as="geometry" />
@@ -25,10 +25,10 @@
           <mxGeometry x="560" y="460" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="PAyLya4S3lvHNLVmTNVt-8" value="modifier ses informations" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="365" y="140" width="120" height="80" as="geometry" />
+          <mxGeometry x="290" y="290" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="PAyLya4S3lvHNLVmTNVt-9" value="interagir avec le chatbot" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="375" y="10" width="100" height="80" as="geometry" />
+          <mxGeometry x="290" y="120" width="100" height="80" as="geometry" />
         </mxCell>
         <mxCell id="PAyLya4S3lvHNLVmTNVt-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0.04;entryY=0.728;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="PAyLya4S3lvHNLVmTNVt-6">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
@@ -50,34 +50,34 @@
             <mxPoint y="-1" as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PAyLya4S3lvHNLVmTNVt-14" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="PAyLya4S3lvHNLVmTNVt-5" target="PAyLya4S3lvHNLVmTNVt-8">
+        <mxCell id="PAyLya4S3lvHNLVmTNVt-14" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="PAyLya4S3lvHNLVmTNVt-5" target="PAyLya4S3lvHNLVmTNVt-8">
           <mxGeometry x="-0.0167" y="6" width="160" relative="1" as="geometry">
             <mxPoint x="450" y="220" as="sourcePoint" />
             <mxPoint x="610" y="220" as="targetPoint" />
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PAyLya4S3lvHNLVmTNVt-15" value="" style="endArrow=none;html=1;rounded=0;entryX=-0.001;entryY=0.624;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="PAyLya4S3lvHNLVmTNVt-9">
+        <mxCell id="PAyLya4S3lvHNLVmTNVt-15" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="PAyLya4S3lvHNLVmTNVt-9">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="160" y="250" as="sourcePoint" />
             <mxPoint x="210" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PAyLya4S3lvHNLVmTNVt-16" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1">
+        <mxCell id="PAyLya4S3lvHNLVmTNVt-16" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
-            <mxPoint x="160" y="279" as="sourcePoint" />
-            <mxPoint x="530" y="279.41" as="targetPoint" />
+            <mxPoint x="160" y="70" as="sourcePoint" />
+            <mxPoint x="640" y="70" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PAyLya4S3lvHNLVmTNVt-17" value="" style="endArrow=none;html=1;rounded=0;entryX=0.015;entryY=0.728;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="PAyLya4S3lvHNLVmTNVt-8">
+        <mxCell id="PAyLya4S3lvHNLVmTNVt-17" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="PAyLya4S3lvHNLVmTNVt-8">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="160" y="260" as="sourcePoint" />
             <mxPoint x="210" y="210" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="PAyLya4S3lvHNLVmTNVt-18" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=1;entryY=1;entryDx=0;entryDy=0;exitX=0.621;exitY=0.007;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="PAyLya4S3lvHNLVmTNVt-5" target="PAyLya4S3lvHNLVmTNVt-9">
+        <mxCell id="PAyLya4S3lvHNLVmTNVt-18" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.026;exitY=0.728;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="PAyLya4S3lvHNLVmTNVt-5" target="PAyLya4S3lvHNLVmTNVt-9">
           <mxGeometry width="160" relative="1" as="geometry">
-            <mxPoint x="470" y="60" as="sourcePoint" />
+            <mxPoint x="610" y="120" as="sourcePoint" />
             <mxPoint x="625" y="60" as="targetPoint" />
           </mxGeometry>
         </mxCell>
