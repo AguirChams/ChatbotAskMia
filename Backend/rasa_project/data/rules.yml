@@ -6,25 +6,30 @@ rules:
       - intent: goodbye
       - action: utter_goodbye
 
+  - rule: Greet the user
+    steps:
+      - intent: greet
+      - action: utter_greet
+
   - rule: Say 'I am a bot' anytime the user challenges
     steps:
       - intent: bot_challenge
       - action: utter_iamabot
 
+  - rule: Respond when user is happy
+    steps:
+      - intent: mood_great
+      - action: utter_happy
+
+  - rule: Cheer up unhappy user
+    steps:
+      - intent: mood_unhappy
+      - action: utter_cheer_up
+
   - rule: Thank the user
     steps:
       - intent: thanks
       - action: utter_thanks
-
-  - rule: Ask exam dates
-    steps:
-      - intent: ask_exam_dates
-      - action: utter_ask_exam_dates
-
-  - rule: Ask for classroom location
-    steps:
-      - intent: ask_location
-      - action: utter_ask_location
 
   - rule: Ask for grades
     steps:
@@ -61,42 +66,62 @@ rules:
       - intent: ask_course_schedule
       - action: utter_ask_course_schedule
 
-  - rule: Answer course schedule based on year
+  - rule: Ask about studying abroad
     steps:
-      - intent: inform_year
-      - action: utter_course_schedule_based_on_year
+      - intent: ask_study_abroad
+      - action: utter_ask_study_abroad
+
+  - rule: Ask about double degree
+    steps:
+      - intent: ask_double_degree
+      - action: utter_ask_double_degree
+
+  - rule: Ask about student housing
+    steps:
+      - intent: ask_student_housing
+      - action: utter_ask_student_housing
+
+  - rule: Ask about canteen hours
+    steps:
+      - intent: ask_canteen_hours
+      - action: utter_ask_canteen_hours
+
+  - rule: Ask about school activities
+    steps:
+      - intent: ask_school_activities
+      - action: utter_ask_school_activities
 
   - rule: Répondre aux horaires de l'école
     steps:
       - intent: demander_horaires_ecole
-      - action: action_donner_horaires
+      - action: utter_horaires_ecole
 
   - rule: Répondre aux frais d'inscription
     steps:
       - intent: demander_frais_inscription
-      - action: action_donner_frais_inscription
+      - action: utter_frais_inscription
 
   - rule: Répondre aux aides financières
     steps:
       - intent: demander_aides_financieres
-      - action: action_donner_aides_financieres
+      - action: utter_aides_financieres
 
   - rule: Répondre à la question sur le diplôme de l'ISTY
     steps:
       - intent: demander_diplome
-      - action: action_donner_diplome
+      - action: utter_diplome
 
   - rule: Répondre aux spécialités de formation
     steps:
       - intent: demander_specialites
-      - action: action_donner_specialites
+      - action: utter_specialites
 
   - rule: Répondre à la réglementation des examens
     steps:
       - intent: demander_reglementation_examens
-      - action: action_donner_reglementation_examens
-  
+      - action: utter_reglementation_examens
+
   - rule: Répondre aux règles intérieures
     steps:
       - intent: demander_regles_interieures
-      - action: action_donner_regles_interieures
+      - action: utter_regles_interieures

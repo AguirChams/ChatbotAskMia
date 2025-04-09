@@ -19,33 +19,23 @@ intents:
   - inform_year
   - ask_alternance_info
   - ask_cheating_info
-<<<<<<< HEAD
   - demander_horaires_ecole
   - demander_frais_inscription
   - demander_aides_financieres
   - demander_diplome
   - demander_specialites
-  - demander_reglementation_examens
   - demander_regles_interieures
-=======
   - ask_study_abroad
   - ask_double_degree
   - ask_student_housing
   - ask_canteen_hours
   - ask_school_activities
->>>>>>> origin/main
 
 entities:
   - matiere
   - test
   - year
   - specialite
-slots:
-  year:
-    type: text
-    mappings:
-      - type: from_entity
-        entity: year
 
 responses:
   utter_greet:
@@ -151,34 +141,32 @@ responses:
     - text: |
         Voici les règles des examens à l'ISTY :
 
-        - La **moyenne minimale** pour valider un module est de **10/20**.
-        - Une note inférieure à **7/20** est considérée comme **éliminatoire**.
-        - Les **rattrapages** sont autorisés sous certaines conditions, et se dérouleront durant la période **de septembre à octobre**.
-        - Pour plus de détails sur les modalités, consultez votre service scolarité ou demandez à Mme Benoit.
+        - La moyenne minimale pour valider un module est de 10/20.
+        - Une note inférieure à 7/20 est considérée comme éliminatoire.
+        - Les rattrapages sont autorisés sous certaines conditions, et se dérouleront durant la période de septembre à octobre.
+        Pour plus de détails sur les modalités, consultez votre service scolarité.
 
-        Si tu as d'autres questions, je suis là pour t'aider !
-  
   utter_regles_interieures:
     - text: |
-        Voici les principales **règles de vie** à respecter au sein de l'IUT :
+        Voici les principales règles de vie à respecter au sein de l'ISTY :
 
-        1. **Il est interdit de manger** dans les salles de cours et dans les espaces communs.
-        2. **Les papiers et les déchets** doivent être jetés dans les poubelles mises à disposition.
-        3. **Les téléphones portables** doivent être éteints et rangés pendant les cours afin de ne pas perturber le déroulement.
-        4. En quittant les salles, **les chaises et les tables doivent être correctement rangées**, et les **lumières éteintes**.
-        5. **Le respect des autres** est essentiel pour maintenir un environnement de travail agréable et productif.
+        1. Il est interdit de manger dans les salles de cours et dans les espaces communs.
+        2. Les papiers et les déchets doivent être jetés dans les poubelles mises à disposition.
+        3. Les téléphones portables doivent être éteints et rangés pendant les cours afin de ne pas perturber le déroulement.
+        4. En quittant les salles, les chaises et les tables doivent être correctement rangées, et les lumières éteintes.
+        5. Le respect des autres est essentiel pour maintenir un environnement de travail agréable et productif.
         Ces règles sont en place pour garantir une bonne ambiance et un cadre de travail serein pour tous.
-        Si tu as des questions ou si tu souhaites plus de détails, n'hésite pas à demander !
+
   utter_aides_financieres:
     - text: |
+        Il est possible d'avoir une bourse venant du CROUS selon vos critères sociaux.
         Vous pouvez consulter toutes les informations sur les aides financières étudiantes en visitant le lien suivant : 
         [Aides étudiantes UVSQ](https://www.uvsq.fr/aides-etudiantes)
-  
+
   utter_horaires_ecole:
     - text: >
-          Les cours ont lieu du lundi au vendredi, de 8h30 à 17h30, avec une pause déjeuner entre 12h et 13h30. 
-  
-  
+        Les cours ont lieu du lundi au vendredi, de 8h30 à 18h30, avec une pause déjeuner entre 11h30 et 14h.
+
   utter_frais_inscription:
     - text: |
         Les frais d’inscription s’élèvent à 614 euros par an.
@@ -187,17 +175,14 @@ responses:
   utter_diplome:
     - text: |
         Le diplôme délivré par l’ISTY est un diplôme d’ingénieur reconnu par l'État et les entreprises, avec une excellente insertion professionnelle.
-  
+
   utter_specialites:
     - text: |
-        L’ISTY propose des formations dans trois grandes spécialités : informatique, mécatronique et électronique.
-  utter_default:
-    - text: "Je suis désolé, je n'ai pas compris votre demande."  
-
-slots:
-  specialite:
-    type: text
-    influence_conversation: true
+        L’ISTY propose des formations dans quatres grandes spécialités : 
+        - Informatique, 
+        - Mécatronique,
+        - Systèmes électroniques embarqués,
+        - Systèmes numériques pour l'industrie.
 
 actions:
   - action_donner_horaires
@@ -207,7 +192,7 @@ actions:
   - action_donner_specialites
   - action_lire_reglementation_examens
   - action_lire_regles_interieures
-  
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

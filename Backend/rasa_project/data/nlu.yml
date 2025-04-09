@@ -427,6 +427,13 @@ nlu:
       - soutenance
       - oral
 
+  - lookup: specialite
+    examples: |
+      - mécatronique
+      - informatique
+      - systèmes éléctroniques embarqués
+      - systèmes numériques pour l'industrie
+
   - lookup: year
     examples: |
       - IATIC3
@@ -451,11 +458,12 @@ nlu:
       - Quels sont les critères d’élimination aux examens ?
       - Est-ce qu'il y a des rattrapages ?
 
-  - intent : demander_regles_interieures
+  - intent: demander_regles_interieures
     examples: |
-      - Quelles sont les règles de vie à l'IUT ?
+      - Quelles sont les règles de vie à l'ISTY?
       - Quelles sont les règles de vie en collectivité ?
-      - Quelles sont les règles de vie à l'IUT de Vélizy ?
+      - quel est le règlement intérieur à l'école ?
+      - y a-t-il un règlement à l'isty ?
 
   - intent: demander_horaires_ecole
     examples: |
@@ -467,6 +475,8 @@ nlu:
   - intent: demander_frais_inscription
     examples: |
       - Combien coûtent les frais d'inscription ?
+      - quels sont les frais de scolarité ?
+      - à combien sont les frais d'école ?
       - Quel est le montant à payer pour s'inscrire ?
       - Les frais d'inscription sont de combien ?
       - Quelle est la somme à verser pour l'inscription ?
@@ -475,6 +485,7 @@ nlu:
     examples: |
       - Existe-t-il des aides financières ?
       - Y a-t-il des bourses disponibles ?
+      - j'ai des difficultées financières
       - Est-ce que je peux bénéficier d'une aide pour payer mes études ?
       - Quelles sont les aides disponibles pour les étudiants ?
 
