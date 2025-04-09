@@ -65,3 +65,38 @@ rules:
     steps:
       - intent: inform_year
       - action: utter_course_schedule_based_on_year
+
+  - rule: Répondre aux horaires de l'école
+    steps:
+      - intent: demander_horaires_ecole
+      - action: action_donner_horaires
+
+  - rule: Répondre aux frais d'inscription
+    steps:
+      - intent: demander_frais_inscription
+      - action: action_donner_frais_inscription
+
+  - rule: Répondre aux aides financières
+    steps:
+      - intent: demander_aides_financieres
+      - action: action_donner_aides_financieres
+
+  - rule: Répondre à la question sur le diplôme de l'ISTY
+    steps:
+      - intent: demander_diplome
+      - action: action_donner_diplome
+
+  - rule: Répondre aux spécialités de formation
+    steps:
+      - intent: demander_specialites
+      - action: action_donner_specialites
+  
+  - rule: Répondre à la réglementation des examens
+    steps:
+      - intent: demander_reglementation_examens
+      - action: utter_reglementation_examens
+  
+  - rule: Répondre aux règles intérieures
+    steps:
+      - intent: demander_regles_interieures
+      - action: utter_regles_interieures

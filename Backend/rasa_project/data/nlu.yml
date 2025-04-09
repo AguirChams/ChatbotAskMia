@@ -361,3 +361,51 @@ nlu:
       - 5e année
       - cinquième année
       - 5ème année
+
+  - intent: demander_regles_examens
+    examples: |
+      - Quelle est la note minimale pour valider un module ?
+      - Quels sont les critères d’élimination aux examens ?
+      - Est-ce qu'il y a des rattrapages ?
+
+  - intent : demander_regles_interieures
+    examples: |
+      - Quelles sont les règles de vie à l'IUT ?
+      - Quelles sont les règles de vie en collectivité ?
+      - Quelles sont les règles de vie à l'IUT de Vélizy ?
+
+  - intent: demander_horaires_ecole
+    examples: |
+      - Quels sont les horaires de l'école ?
+      - À quelle heure commencent les cours ?
+      - L'école ferme à quelle heure ?
+      - Quels sont les horaires des cours à l'ISTY ?
+
+  - intent: demander_frais_inscription
+    examples: |
+      - Combien coûtent les frais d'inscription ?
+      - Quel est le montant à payer pour s'inscrire ?
+      - Les frais d'inscription sont de combien ?
+      - Quelle est la somme à verser pour l'inscription ?
+
+  - intent: demander_aides_financieres
+    examples: |
+      - Existe-t-il des aides financières ?
+      - Y a-t-il des bourses disponibles ?
+      - Est-ce que je peux bénéficier d'une aide pour payer mes études ?
+      - Quelles sont les aides disponibles pour les étudiants ?
+
+  - intent: demander_diplome
+    examples: |
+      - Quel est le diplôme délivré par l'ISTY ?
+      - Quelle est la valeur du diplôme de l'ISTY ?
+      - Le diplôme est reconnu en entreprise ?
+      - Quelle est la reconnaissance du diplôme en [informatique](specialite) ?
+      - Et pour la spécialité [mécatronique](specialite), le diplôme est-il reconnu ?
+
+  - intent: demander_specialites
+    examples: |
+      - Quelles sont les spécialités proposées à l'ISTY ?
+      - Dans quelles spécialités peut-on se former ?
+      - Quelles formations sont disponibles ?
+      - L’ISTY forme à quels domaines ?
