@@ -22,7 +22,7 @@ def page_connexion():
 
 
 # à mettre dans des routes selon le js
-models.create_new_etudiant(
+"""models.create_new_etudiant(
     22101371, "Lampin", "Vivien", datetime.datetime(2003, 10, 4), "test", "IATIC3")
 print(models.get_mdp_from_etudiant(22101371))
 models.update_mdp_etudiant(22101371, "test2")
@@ -30,3 +30,5 @@ print(models.get_mdp_from_etudiant(22101371))
 models.delete_etudiant(22101371)
 print(models.get_mdp_from_etudiant(22101371))
 models.update_mdp_etudiant(22101371, "test2")
+"""
+

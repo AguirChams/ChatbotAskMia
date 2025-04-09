@@ -47,9 +47,9 @@ def create_new_etudiant(numEtudiant, nom, prenom, dateDeNaissance, motDePasse, c
     mdpHashe = hashlib.sha256(motDePasse.encode()).hexdigest()
     stmt = insert(table_etudiant).values(numeroEtudiant=numEtudiant, nom=nom,
                                          prenom=prenom, dateDeNaissance=dateDeNaissance, motDePasse=mdpHashe, classe=classe)
-    with engine.connect() as conn:
+    with engine.begin() as conn:
         conn.execute(stmt)
-        conn.commit()
+
     conn.close()
 
 
