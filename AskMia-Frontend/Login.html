@@ -1,15 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Connexion - AskMia</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
 
-  <!-- Formulaire de connexion ici -->
+  <div class="bubble bubble1"></div>
+  <div class="bubble bubble2"></div>
+  <div class="bubble bubble3"></div>
+  <div class="bubble bubble4"></div>
+ 
 
-  <script src="js/login.js"></script>
+  <div class="container">
+    <header>
+      <img src="Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo"/>
+    </header>
+
+    <div class="login-layout">
+      <div class="intro-text">
+        <h1>AskMia</h1>
+        <p>Avec AskMia vous trouverez les réponses à toutes vos questions</p>
+      </div>
+
+    <main class="form-container-right">
+      <form id="student-login">
+        <div class="form-group">
+          <label for="Student_id">ID Etudiant :</label>
+          <input type="text" id="Student_id" name="Student_id" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit" class="btn1">Se connecter</button>
+      </form>
+
+        <hr style="margin: 40px 0; border: none; border-top: 1px solid #6f0142;">
+
+      <form id="admin-login">
+        <div class="form-group">
+          <label for="Admin_id">ID Admin :</label>
+          <input type="text" id="Admin_id" name="Admin_id" required>
+        </div>
+  
+        <button type="submit" class="btn1">Se connecter</button>
+      </form>
+      
+    </main>
+  </div>
+
+  <script src="js/create-account.js"></script>
 </body>
 </html>
