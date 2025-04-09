@@ -1,0 +1,14 @@
+[
+  {
+    "name": "matiere",
+    "pattern": "(\\bmaths\\b|\\bmathématiques\\b|\\bphysique\\b|\\banglais\\b|\\bespagnol\\b|\\bchinois\\b|\\ballemand\\b|\\bgestion\\b|\\bcommunication\\b|\\balgorithmique\\b|\\bstructure\\ des\\ ordinateurs\\b|\\bbase\\ de\\ données\\b|\\bpoo\\b|\\bprogrammation\\ orientée\\ objet\\b)"
+  },
+  {
+    "name": "test",
+    "pattern": "(\\bexam\\b|\\bexamen\\b|\\bds\\b|\\bcc\\b|\\bcontrôle\\b|\\bévaluation\\b|\\bcontrole\\b|\\bevaluation\\b|\\béval\\b|\\beval\\b|\\binterro\\b|\\binterrogation\\b|\\btest\\b|\\bqcm\\b|\\bsoutenance\\b|\\boral\\b)"
+  },
+  {
+    "name": "year",
+    "pattern": "(\\bIATIC3\\b|\\bIATIC\\ 3\\b|\\b3e\\ année\\b|\\btroisième\\ année\\b|\\b3ème\\ année\\b|\\bIATIC4\\b|\\bIATIC\\ 4\\b|\\b4e\\ année\\b|\\bquatrième\\ année\\b|\\b4ème\\ année\\b|\\bIATIC5\\b|\\bIATIC\\ 5\\b|\\b5e\\ année\\b|\\bcinquième\\ année\\b|\\b5ème\\ année\\b)"
+  }
+]
