@@ -1,58 +1,55 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Créer un compte - AskMia</title>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créer un compte - AskMia</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
+    <div class="bubble bubble4"></div>
 
-  <div class="bubble bubble1"></div>
-  <div class="bubble bubble2"></div>
-  <div class="bubble bubble3"></div>
-  <div class="bubble bubble4"></div>
- 
+    <div class="container">
+      <header>
+        <img src="Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
+      </header>
 
-  <div class="container">
-    <header>
-      <img src="Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo"/>
-    </header>
+      <main class="form-container-center">
+        <h1>Créer un compte</h1>
 
-    <main class="form-container-center">
-      <h1>Créer un compte</h1>
-  
-      <form>
-        <div class="form-group">
-          <label for="surname">Nom :</label>
-          <input type="text" id="surname" name="surname" required>
-        </div>
-      
-        <div class="form-group">
-          <label for="name">Prénom :</label>
-          <input type="text" id="name" name="name" required>
-        </div>
+        <form>
+          <div class="form-group">
+            <label for="surname">Nom :</label>
+            <input type="text" id="surname" name="surname" required />
+          </div>
 
-        <div class="form-group">
-          <label for="birthdate">Date de naissance :</label>
-          <input type="text" id="date" name="birthdate" required>
-        </div>
+          <div class="form-group">
+            <label for="name">Prénom :</label>
+            <input type="text" id="name" name="name" required />
+          </div>
 
-        <div class="form-group">
-          <label for="class">Classe :</label>
-          <input type="text" id="class" name="Class" required>
-        </div>
+          <div class="form-group">
+            <label for="birthdate">Date de naissance :</label>
+            <input type="text" id="date" name="birthdate" required />
+          </div>
 
-        <div class="form-group">
-          <label for="password">Mot de passe :</label>
-          <input type="password" id="password" name="password" required>
-        </div>    
-        <button type="submit" class="btn">Créer</button>
-      </form>
-      
-    </main>
-  </div>
+          <div class="form-group">
+            <label for="class">Classe :</label>
+            <input type="text" id="class" name="Class" required />
+          </div>
 
-  <script src="js/login.js"></script>
-</body>
+          <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+          <button type="submit" class="btn">Créer</button>
+        </form>
+      </main>
+    </div>
+
+    <script src="js/login.js"></script>
+  </body>
 </html>
