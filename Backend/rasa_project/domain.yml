@@ -39,7 +39,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Bonjour !"
+    - text: "Bonjour ! "
 
   utter_cheer_up:
     - text: "Oh, ne t'inquiète pas, ça va aller !"
@@ -82,12 +82,16 @@ responses:
 
   utter_ask_internship_info:
     - text: |
-        Pour les stages, tu peux :
+        Pour les stages, la durée doit être de : 
+        - 1 à 2 mois en entreprise pour les IATIC3
+        - 3 à 4 mois en entreprise pour les IATIC4
+        - 6 mois en entreprise pour les IATIC5
+        Pour plus d'informations, tu peux :
         - Contacter le service des stages : gestion.stage@isty.uvsq.fr
         - Regarder sur la page web dédiée : http://stages.isty.uvsq.fr/
 
   utter_ask_library_hours:
-    - text: "La bibliothèque universitaire est ouverte du lundi au vendredi de 8h30 à 17h30."
+    - text: "La bibliothèque universitaire de Vélizy est ouverte du lundi au vendredi de 8h30 à 17h30."
 
   utter_ask_alternance_info:
     - text: |
@@ -104,9 +108,9 @@ responses:
 
   utter_ask_study_abroad:
     - text: |
-        Oui, il est possible de faire un séjour à l'étranger.  
+        Il est possible de faire un semestre à l'étranger en dernière année, à condition d'avoir le TOEIC.  
         L'école propose plusieurs partenariats avec des universités étrangères.  
-        Renseigne-toi auprès du service des relations internationales.
+        Plus d'informations ici : https://www.isty.uvsq.fr/partir-a-letranger
 
   utter_ask_double_degree:
     - text: |
@@ -115,7 +119,8 @@ responses:
 
   utter_ask_student_housing:
     - text: |
-        Oui, il existe des logements étudiants via le CROUS et parfois d'autres résidences privées partenaires.  
+        Il existe des logements étudiants CROUS, et des résidences privées partenaires. 
+        Tu peux aussi aller voir la plateforme CASA de l'Université Paris-Saclay.
         Voici la page web dédiée aux logements : https://www.isty.uvsq.fr/logement
 
   utter_ask_canteen_hours:
