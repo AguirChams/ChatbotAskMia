@@ -1,0 +1,36 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-matiere",
+      "2": "I-matiere",
+      "3": "L-matiere",
+      "4": "U-matiere",
+      "5": "B-test",
+      "6": "I-test",
+      "7": "L-test",
+      "8": "U-test",
+      "9": "B-year",
+      "10": "I-year",
+      "11": "L-year",
+      "12": "U-year",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-matiere": 1,
+      "I-matiere": 2,
+      "L-matiere": 3,
+      "U-matiere": 4,
+      "B-test": 5,
+      "I-test": 6,
+      "L-test": 7,
+      "U-test": 8,
+      "B-year": 9,
+      "I-year": 10,
+      "L-year": 11,
+      "U-year": 12,
+      "O": 0
+    },
+    "num_tags": 13
+  }
+]

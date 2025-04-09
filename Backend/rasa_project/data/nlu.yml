@@ -1,0 +1,363 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - salut
+      - salut toi
+      - bonjour
+      - coucou
+      - bonsoir
+      - salut tout le monde
+      - hey
+      - yo
+      - bon matin
+      - bonne après-midi
+      - salut à tous
+      - enchanté
+      - wesh
+
+  - intent: goodbye
+    examples: |
+      - au revoir
+      - à bientôt
+      - à plus tard
+      - bonne journée
+      - bonne soirée
+      - ciao
+      - à la prochaine
+      - à plus
+      - bye
+      - adieu
+
+  - intent: affirm
+    examples: |
+      - oui
+      - bien sûr
+      - exactement
+      - c'est vrai
+      - tout à fait
+      - évidemment
+      - d'accord
+      - absolument
+      - en effet
+
+  - intent: deny
+    examples: |
+      - non
+      - pas du tout
+      - je ne pense pas
+      - absolument pas
+      - jamais
+      - pas vraiment
+      - ce n'est pas ça
+      - je ne suis pas d'accord
+      - plutôt non
+
+  - intent: mood_great
+    examples: |
+      - je vais très bien
+      - super
+      - excellent
+      - au top
+      - je suis ravi
+      - je suis ravie
+      - je suis motivé
+      - je suis heureuse
+      - je suis heureux
+      - je suis motivée
+      - trop content
+      - trop contente
+      - j'ai eu une super note
+      - je suis en forme
+      - je suis excité pour les cours
+      - je suis excitée pour les cours
+      - prêt pour l'examen
+      - prête pour l'examen
+      - tout va bien
+
+  - intent: mood_unhappy
+    examples: |
+      - je suis fatigué
+      - je suis pas content
+      - je suis pas contente
+      - je suis fatiguée
+      - je suis stressé par les examens
+      - je suis stressée par les examens
+      - je suis déçu
+      - je suis déçue
+      - j'ai raté mon partiel
+      - j'ai raté mon examen
+      - j'ai raté mon CC
+      - j'ai raté mon ds
+      - j'ai raté mon partiel
+      - je suis triste
+      - ce cours est difficile
+      - je n'ai pas bien compris le sujet
+      - journée compliquée
+      - je me sens mal
+      - c'est une mauvaise journée
+      - je suis débordé de travail
+      - je suis débordée de travail
+      - trop de devoirs
+
+  - intent: bot_challenge
+    examples: |
+      - es-tu un bot ?
+      - es-tu humain ?
+      - suis-je en train de parler à une IA ?
+      - est-ce que tu es un assistant virtuel ?
+      - tu es un vrai humain ?
+      - es-tu un robot ?
+
+  - intent: thanks
+    examples: |
+      - merci
+      - merci beaucoup
+      - un grand merci
+      - merci infiniment
+      - je te remercie
+      - merci bien
+      - merci mille fois
+      - c'est gentil, merci
+      - merci pour ton aide
+      - merci pour l'info
+      - merci pour tout
+      - merci énormément
+      - je vous remercie
+      - merci bien à vous
+
+  - intent: inform_year
+    examples: |
+      - Je suis en [3](year)e année
+      - Je suis en [4](year)e année
+      - Je suis en [5](year)e année
+      - [troisième](year) année
+      - [quatrième](year) année
+      - [cinquième](year) année
+      - [3](year)e
+      - [4](year)e année
+      - [5](year)
+      - Je suis en [3](year)e année
+      - Je suis en [troisième](year) année
+      - je suis en [5](year)e année
+      - [IATIC3](year)
+
+  - intent: ask_course_schedule
+    examples: |
+      - C’est quand le cours de [anglais](matiere) ?
+      - À quelle heure est le cours de [maths](matiere) ?
+      - Le cours de [espagnol](matiere) est à quelle heure ?
+      - Je dois aller à [chinois](matiere) quand ?
+      - On a [gestion](matiere) aujourd’hui ?
+      - C’est prévu quand [communication](matiere) ?
+      - J’ai [physique](matiere) demain ?
+      - Le prochain cours de [algorithmique](matiere), c’est quand ?
+      - Tu sais à quelle heure j’ai [base de données](matiere) ?
+      - J’ai [poo](matiere) cet après-midi ?
+      - Le cours de [programmation orientée objet](matiere) est à quelle heure ?
+      - Je voulais savoir l’horaire de [structure des ordinateurs](matiere)
+      - Quand commence le cours de [allemand](matiere) ?
+      - Quel est l'emploi du temps ?
+      - Quel est mon emploi du temps ?
+      - Peux-tu me donner mon planning de la semaine ?
+      - Quand commence le prochain cours ?
+      - Quelle est la date du prochain TD ?
+      - Quelle est la date du prochain TP ?
+      - Quand a lieu le prochain TD ?
+      - Quand a lieu le prochain TP ?
+      - Où puis-je voir mon emploi du temps ?
+
+  - intent: ask_exam_dates
+    examples: |
+      - Quand a lieu le prochain [DS](test) ?
+      - Quelle est la date du prochain [CC](test) ?
+      - Quand sont les prochains [examens](test) ?
+      - Peux-tu me dire la date du prochain [partiel](test) ?
+      - C’est quand le prochain [examen](test) ?
+      - Quand est mon [contrôle](test) de [physique](matiere) ?
+      - Quelle est la date du prochain [examen](test) ?
+      - Le [partiel](test) de [maths](matiere) est prévu pour quand ?
+      - C’est quand le [DS](test) de [maths](matiere) ?
+      - Je passe [anglais](matiere) quel jour ?
+      - Le [contrôle](test) de [algorithmique](matiere) c’est à quelle date ?
+      - L’[examen](test) de [base de données](matiere) est prévu quand ?
+      - Tu sais quand j’ai l’[examen](test) de [communication](matiere) ?
+      - L’[épreuve](test) de [gestion](matiere) est quand ?
+      - Le [partiel](test) de [programmation orientée objet](matiere), c’est prévu pour quand ?
+      - L’[examen final](test) de [structure des ordinateurs](matiere), tu as la date ?
+      - C’est quand le [test](test) de [chinois](matiere) ?
+      - J’ai [espagnol](matiere) en [contrôle](test) quand ?
+      - Quand est-ce que j’ai mon [QCM](test) de [économie](matiere) ?
+      - Est-ce que tu connais la date de l’[interrogation](test) de [mathématiques](matiere) ?
+      - La [soutenance](test) de [gestion](matiere), elle est prévue quand ?
+      - Tu sais quand j’ai l’[oral](test) de [droit](matiere) ?
+      - L’[évaluation](test) de [chinois](matiere) est quand ?
+      - Je passe l’[éval](test) de [gestion](matiere) quand ?
+      - Mon prochain [contrôle](test) de [maths](matiere) c’est quand ?
+      - À quelle date est prévu le prochain [examen](test) de [communication](matiere) ?
+      - Le prochain [DS](test) de [physique](matiere) est quand ?
+
+  - intent: ask_location
+    examples: |
+      - Où a lieu le cours de droit ?
+      - Dans quelle salle est mon TD ?
+      - C’est dans quel bâtiment le cours ?
+      - Où se trouve l’amphi B ?
+      - Le cours est dans quelle salle ?
+      - Je ne trouve pas la salle 104
+
+  - intent: ask_grades
+    examples: |
+      - Où puis-je consulter mes notes ?
+      - J’aimerais voir mes résultats
+      - Mes notes sont-elles disponibles ?
+      - Comment accéder à mes bulletins ?
+      - Est-ce que les notes du partiel sont publiées ?
+
+  - intent: ask_registration
+    examples: |
+      - Comment fonctionne l’inscription ?
+      - L’inscription est encore ouverte ?
+      - Quelle est la procédure d’inscription ?
+      - Je dois m’inscrire où ?
+      - Où puis-je m’inscrire ?
+      - Est-ce que les inscriptions sont toujours possibles ?
+      - C’est quand la période d’inscription ?
+      - Jusqu’à quand peut-on s’inscrire ?
+      - Je n’ai pas encore fait mon inscription, c’est trop tard ?
+      - Comment faire pour m’inscrire ?
+      - Je veux m’inscrire à l’université
+      - Je veux m’inscrire à l’école
+      - Je souhaite rejoindre votre établissement
+      - Je suis nouveau, comment je m’inscris ?
+      - Est-ce que les inscriptions sont en ligne ?
+      - Comment accéder au portail d’inscription ?
+      - Faut-il des documents pour s’inscrire ?
+      - Quelles sont les étapes pour l’inscription ?
+
+  - intent: ask_internship_info
+    examples: |
+      - Comment trouver un stage ?
+      - Je cherche un stage, tu peux m’aider ?
+      - Y a-t-il un service pour les stages ?
+      - À qui je m’adresse pour un stage ?
+      - Quels sont les stages disponibles ?
+      - Quelle est la durée minimale d’un stage ?
+      - Est-ce qu’un stage est obligatoire ?
+      - Un stage est-il rémunéré ?
+      - Quels sont les critères pour faire un stage ?
+      - Quand peut-on faire un stage ?
+      - Le stage doit-il être en rapport avec ma formation ?
+      - Faut-il une convention de stage ?
+      - Où puis-je obtenir une convention de stage ?
+      - Comment valider mon stage ?
+      - Le stage compte-t-il dans la moyenne ?
+      - Puis-je faire un stage à l’étranger ?
+      - Y a-t-il une aide pour trouver un stage ?
+      - Est-ce que l’école propose des offres de stages ?
+      - Comment déposer une offre de stage ?
+      - Est-ce qu’il y a un tuteur de stage à contacter ?
+      - Combien de temps dure le stage obligatoire ?
+      - Puis-je faire mon stage pendant les vacances ?
+      - Est-ce qu’il faut une assurance pour faire un stage ?
+
+  - intent: ask_alternance_info
+    examples: |
+      - Qu’est-ce que l’alternance ?
+      - Comment fonctionne l’alternance ?
+      - Est-ce que je peux faire de l’alternance ?
+      - Quels sont les avantages de l’alternance ?
+      - L’alternance est-elle possible dans mon programme ?
+      - Quelles sont les conditions pour faire de l’alternance ?
+      - Je veux en savoir plus sur l’alternance
+      - Quelles entreprises proposent des alternances ?
+      - Quand puis-je postuler pour une alternance ?
+      - L’alternance est-elle rémunérée ?
+      - Comment trouver une entreprise pour mon alternance ?
+
+  - intent: ask_cheating_info
+    examples: |
+      - Qu’est-ce que la tricherie ?
+      - Est-ce que je peux être exclu pour tricher ?
+      - Que se passe-t-il si je triche à un examen ?
+      - Est-ce que tricher est puni ?
+      - Y a-t-il des conséquences à la tricherie ?
+      - Que faire si je suis accusé de tricher ?
+      - Comment éviter de tricher ?
+      - Quelles sont les sanctions en cas de tricherie ?
+      - La tricherie est-elle tolérée dans cette école ?
+      - Est-ce que les profs vérifient si on triche ?
+
+  - intent: ask_library_hours
+    examples: |
+      - À quelle heure ouvre la bibliothèque ?
+      - Est-ce que la bibliothèque est ouverte le week-end ?
+      - Quels sont les horaires de la BU ?
+      - La bibliothèque ferme à quelle heure ?
+      - Je peux aller à la BU ce soir ?
+      - C’est ouvert aujourd’hui la BU ?
+      - Est-ce que la BU est ouverte pendant les vacances ?
+      - Quels sont les horaires d’ouverture en période d’examens ?
+      - La bibliothèque est-elle accessible le dimanche ?
+      - Jusqu’à quelle heure la BU est ouverte ?
+      - À quelle heure ferme la bibliothèque universitaire ?
+      - Est-ce que la bibliothèque ouvre tôt le matin ?
+      - La BU est ouverte en ce moment ?
+      - Est-ce que la BU est ouverte les jours fériés ?
+      - Quels sont les nouveaux horaires de la bibliothèque ?
+      - Est-ce que les horaires ont changé ?
+
+  - lookup: matiere
+    examples: |
+      - maths
+      - mathématiques
+      - physique
+      - anglais
+      - espagnol
+      - chinois
+      - allemand
+      - gestion
+      - communication
+      - algorithmique
+      - structure des ordinateurs
+      - base de données
+      - poo
+      - programmation orientée objet
+
+  - lookup: test
+    examples: |
+      - exam
+      - examen
+      - ds
+      - cc
+      - contrôle
+      - évaluation
+      - controle
+      - evaluation
+      - éval
+      - eval
+      - interro
+      - interrogation
+      - test
+      - qcm
+      - soutenance
+      - oral
+
+  - lookup: year
+    examples: |
+      - IATIC3
+      - IATIC 3
+      - 3e année
+      - troisième année
+      - 3ème année
+      - IATIC4
+      - IATIC 4
+      - 4e année
+      - quatrième année
+      - 4ème année
+      - IATIC5
+      - IATIC 5
+      - 5e année
+      - cinquième année
+      - 5ème année

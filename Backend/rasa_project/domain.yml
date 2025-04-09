@@ -1,0 +1,89 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thanks
+  - ask_course_schedule
+  - ask_exam_dates
+  - ask_location
+  - ask_grades
+  - ask_registration
+  - ask_internship_info
+  - ask_library_hours
+  - inform_year
+  - ask_alternance_info
+  - ask_cheating_info
+
+entities:
+  - matiere
+  - test
+  - year
+
+slots:
+  year:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: year
+
+responses:
+  utter_greet:
+    - text: "Bonjour ! Comment vas-tu ?"
+
+  utter_cheer_up:
+    - text: "Oh, ne t'inquiète pas, ça va aller !"
+
+  utter_did_that_help:
+    - text: "Est-ce que cela t'as aidé ?"
+
+  utter_happy:
+    - text: "Super !"
+
+  utter_goodbye:
+    - text: "Bye ! À bientôt 👋"
+
+  utter_iamabot:
+    - text: "Je suis Mia, l'assistante virtuelle de l'ISTY."
+
+  utter_thanks:
+    - text: "Avec plaisir 😊"
+
+  utter_ask_course_schedule:
+    - text: "Précise moi dans quelle classe tu es afin que je puisse t'envoyer le lien de l'emploi du temps correspondant."
+
+  utter_course_schedule_based_on_year:
+    - text: "Here is your course schedule."
+
+  utter_ask_exam_dates:
+    - text: "Les examens sont présents sur l'emploi du temps."
+
+  utter_ask_location:
+    - text: "Les salles sont précisées sur l'emploi du temps."
+
+  utter_ask_grades:
+    - text: "Tu peux consulter tes notes sur l'ENT ou via le portail étudiant."
+
+  utter_ask_registration:
+    - text: "L’inscription se fait en ligne via le portail de l’université. Tu veux que je t’envoie le lien ?"
+
+  utter_ask_internship_info:
+    - text: "Pour les stages, contacte le service des stages ou regarde sur la page web dédiée."
+
+  utter_ask_library_hours:
+    - text: "La bibliothèque est ouverte du lundi au vendredi de 8h30 à 19h."
+
+  utter_ask_alternance_info:
+    - text: "L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise. Elle peut être réalisée dans certaines filières et est souvent rémunérée. Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires."
+
+  utter_cheating_info:
+    - text: "La tricherie est strictement interdite dans notre établissement. Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion. Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

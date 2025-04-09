@@ -1,0 +1,67 @@
+version: "3.1"
+
+rules:
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Thank the user
+    steps:
+      - intent: thanks
+      - action: utter_thanks
+
+  - rule: Ask exam dates
+    steps:
+      - intent: ask_exam_dates
+      - action: utter_ask_exam_dates
+
+  - rule: Ask for classroom location
+    steps:
+      - intent: ask_location
+      - action: utter_ask_location
+
+  - rule: Ask for grades
+    steps:
+      - intent: ask_grades
+      - action: utter_ask_grades
+
+  - rule: Ask about registration
+    steps:
+      - intent: ask_registration
+      - action: utter_ask_registration
+
+  - rule: Ask about internship
+    steps:
+      - intent: ask_internship_info
+      - action: utter_ask_internship_info
+
+  - rule: Ask library hours
+    steps:
+      - intent: ask_library_hours
+      - action: utter_ask_library_hours
+
+  - rule: Provide alternance information
+    steps:
+      - intent: ask_alternance_info
+      - action: utter_ask_alternance_info
+
+  - rule: Provide cheating information
+    steps:
+      - intent: ask_cheating_info
+      - action: utter_cheating_info
+
+  - rule: Ask course schedule
+    steps:
+      - intent: ask_course_schedule
+      - action: utter_ask_course_schedule
+
+  - rule: Answer course schedule based on year
+    steps:
+      - intent: inform_year
+      - action: utter_course_schedule_based_on_year
