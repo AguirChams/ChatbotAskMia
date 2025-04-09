@@ -90,13 +90,13 @@ rules:
     steps:
       - intent: demander_specialites
       - action: action_donner_specialites
-  
+
   - rule: Répondre à la réglementation des examens
     steps:
       - intent: demander_reglementation_examens
-      - action: utter_reglementation_examens
+      - action: action_donner_reglementation_examens
   
   - rule: Répondre aux règles intérieures
     steps:
       - intent: demander_regles_interieures
-      - action: utter_regles_interieures
+      - action: action_donner_regles_interieures

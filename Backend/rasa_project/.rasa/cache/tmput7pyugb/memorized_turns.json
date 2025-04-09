@@ -1,0 +1,11 @@
+{
+  "lookup": {
+    "eJyLrq6NBQAEOAGx": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB2fnJNYXFyUn58bn5OfnAhSXlsbCwD7OSKX": "utter_ask_classroom_location",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB2fnJNYXFyUn58bn5OfnAhSXkvA0NKSktSieBx6ibYjFgAbU0nN": "utter_ask_course_schedule",
+    "eJytjVEKgDAMQ6+yA3iCXUWkjFlwuK3Sdv6M3d2J/op++JeQl2SsbTB1Y9zBeQ2UramXgOwSWnObGEQxd7YIcmdC7lZ7LCv46ESYKEEk7068vYwWVWR46P7/QYUFQfyCc4n4/WA6ADXZb7U=": "action_listen",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB2fWpGYG5+SWJJaXFsbCwDyHh8n": "utter_ask_exam_dates",
+    "eJyLrq7VUaguKEoti09MLsnMz7NSqIYw4vMSc1OtFKCcnMziktQ8oNrS4tQioJrMPCC3BChdnB2fWpGYG5+SWJJaXEvAsNKSktSieDQ9BM2MBQB5Nj99": "utter_ask_course_schedule",
+    "eJytjE0KgCAUhK/iATpBV4l4iA4k+RO+ZwTi3RNq1cZNuxnmm2+pbVL1yDhJG3Epzqo+gaIOmNVbvGNB7Gxh5M642Kv0mXfCpQNZLeA2kBURZPp8fnOaVDKD2GywxWMsXm+Lh2H1": "action_listen"
+  }
+}

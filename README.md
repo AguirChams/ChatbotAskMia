@@ -4,7 +4,7 @@
 Personnellement je préfère passer par anaconda pour ne pas saboter mes interpréteurs Python, mais chacun fait comme il veut : https://www.anaconda.com/download/success
 Ensuite une fois que c'est installé :
 ```sh
-conda create -n mia python=3.11.9
+conda create -n mia python=3.9.0
 conda activate mia
 ```
 

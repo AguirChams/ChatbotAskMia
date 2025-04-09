@@ -65,6 +65,8 @@ nlu:
       - je suis motivé
       - je suis heureuse
       - je suis heureux
+      - je suis content
+      - je suis contente
       - je suis motivée
       - trop content
       - trop contente
@@ -198,9 +200,9 @@ nlu:
       - À quelle date est prévu le prochain [examen](test) de [communication](matiere) ?
       - Le prochain [DS](test) de [physique](matiere) est quand ?
 
-  - intent: ask_location
+  - intent: ask_classroom_location
     examples: |
-      - Où a lieu le cours de droit ?
+      - Où a lieu le cours de [maths](matiere) ?
       - Dans quelle salle est mon TD ?
       - C’est dans quel bâtiment le cours ?
       - Où se trouve l’amphi B ?
@@ -214,6 +216,8 @@ nlu:
       - Mes notes sont-elles disponibles ?
       - Comment accéder à mes bulletins ?
       - Est-ce que les notes du partiel sont publiées ?
+      - quelle est ma note en [maths](matiere) ?
+      - j'ai eu combien en [anglais](matiere) ?
 
   - intent: ask_registration
     examples: |
@@ -307,6 +311,85 @@ nlu:
       - Est-ce que la BU est ouverte les jours fériés ?
       - Quels sont les nouveaux horaires de la bibliothèque ?
       - Est-ce que les horaires ont changé ?
+
+  - intent: ask_study_abroad
+    examples: |
+      - Est-ce qu'on peut faire un séjour à l'étranger ?
+      - Quelles sont les possibilités pour partir à l'étranger ?
+      - Peut-on faire un semestre à l'international ?
+      - Y a-t-il des partenariats avec des universités étrangères ?
+      - Je veux partir étudier à l'étranger
+      - Est-ce que l’école permet de partir à l’étranger ?
+      - Quels pays sont disponibles pour une mobilité ?
+      - C’est possible d’étudier un semestre à l’étranger ?
+      - Comment fonctionne un échange international ?
+      - Est-ce que les crédits sont reconnus à l’étranger ?
+      - Est-ce qu’on peut faire un Erasmus ?
+      - Je peux aller à l’étranger avec le programme ?
+      - Est-ce que l’ISTY permet de faire une année à l’étranger ?
+
+  - intent: ask_double_degree
+    examples: |
+      - Est-ce qu'on peut faire un double diplôme en dernière année ?
+      - Puis-je faire un double diplôme ?
+      - Comment fonctionne le double diplôme ?
+      - L’école propose-t-elle un double diplôme ?
+      - J’aimerais faire un double diplôme
+      - Est-ce possible de faire deux diplômes en même temps ?
+      - Le double diplôme est-il reconnu ?
+      - Quelle est la durée d’un double diplôme ?
+      - Est-ce que le double diplôme est en partenariat avec une autre école ?
+      - Peut-on faire un double diplôme à l’étranger ?
+      - Est-ce que c’est sélectif pour faire un double diplôme ?
+      - Comment postuler au programme de double diplôme ?
+      - Quels sont les critères pour accéder au double diplôme ?
+
+  - intent: ask_student_housing
+    examples: |
+      - Est-ce qu'il y a des logements universitaires ?
+      - Où peut-on se loger ?
+      - L'école propose-t-elle des logements ?
+      - Quels sont les logements disponibles pour les étudiants ?
+      - Comment avoir un logement étudiant ?
+      - Peut-on avoir une chambre au CROUS ?
+      - Est-ce qu’il y a une résidence universitaire ?
+      - Y a-t-il des aides pour se loger ?
+      - Comment faire une demande de logement étudiant ?
+      - C’est difficile de trouver un logement ?
+      - Où se trouvent les résidences universitaires ?
+      - Est-ce que les logements sont proches de l’école ?
+      - Faut-il faire une demande en ligne pour le logement ?
+
+  - intent: ask_canteen_hours
+    examples: |
+      - Quels sont les horaires de la cantine du CROUS ?
+      - La cantine est ouverte le soir ?
+      - À quelle heure ouvre le restaurant universitaire ?
+      - C’est ouvert le week-end la cantine ?
+      - Est-ce que la cantine est ouverte en ce moment ?
+      - La cantine ferme à quelle heure ?
+      - Est-ce que le RU est ouvert pendant les vacances ?
+      - Quels sont les horaires du RU aujourd’hui ?
+      - Le restaurant universitaire est ouvert le samedi ?
+      - Peut-on manger à midi au CROUS ?
+      - Est-ce qu’on peut prendre un petit-déjeuner à la cantine ?
+      - Où voir les horaires de la cantine ?
+
+  - intent: ask_school_activities
+    examples: |
+      - Quelles activités sont proposées à l'école ?
+      - Est-ce qu'il y a des clubs ou des associations ?
+      - Qu'est-ce qu'on peut faire comme activités extrascolaires ?
+      - Quels événements sont organisés par l’école ?
+      - Y a-t-il une vie associative ?
+      - Y a-t-il des événements festifs ou culturels ?
+      - Est-ce qu’il y a un BDE ?
+      - Comment rejoindre un club étudiant ?
+      - Quels sont les sports proposés par l’école ?
+      - Il y a des tournois ou compétitions étudiantes ?
+      - Peut-on faire du théâtre ou de la musique à l’école ?
+      - Est-ce qu’il y a des sorties ou voyages étudiants ?
+      - C’est quoi les événements organisés cette année ?
 
   - lookup: matiere
     examples: |

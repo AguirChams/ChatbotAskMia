@@ -1,0 +1,76 @@
+{
+  "type": "IntentMaxHistoryTrackerFeaturizer",
+  "state_featurizer": {
+    "action_texts": [],
+    "entity_tag_specs": [],
+    "feature_states": {
+      "intent": {
+        "affirm": 0,
+        "ask_alternance_info": 1,
+        "ask_cheating_info": 2,
+        "ask_classroom_location": 3,
+        "ask_course_schedule": 4,
+        "ask_exam_dates": 5,
+        "ask_grades": 6,
+        "ask_internship_info": 7,
+        "ask_library_hours": 8,
+        "ask_registration": 9,
+        "back": 10,
+        "bot_challenge": 11,
+        "deny": 12,
+        "goodbye": 13,
+        "greet": 14,
+        "inform_year": 15,
+        "mood_great": 16,
+        "mood_unhappy": 17,
+        "nlu_fallback": 18,
+        "out_of_scope": 19,
+        "restart": 20,
+        "session_start": 21,
+        "thanks": 22
+      },
+      "action_name": {
+        "action_listen": 0,
+        "action_restart": 1,
+        "action_session_start": 2,
+        "action_default_fallback": 3,
+        "action_deactivate_loop": 4,
+        "action_revert_fallback_events": 5,
+        "action_default_ask_affirmation": 6,
+        "action_default_ask_rephrase": 7,
+        "action_two_stage_fallback": 8,
+        "action_unlikely_intent": 9,
+        "action_back": 10,
+        "...": 11,
+        "action_extract_slots": 12,
+        "utter_ask_alternance_info": 13,
+        "utter_ask_classroom_location": 14,
+        "utter_ask_course_schedule": 15,
+        "utter_ask_exam_dates": 16,
+        "utter_ask_grades": 17,
+        "utter_ask_internship_info": 18,
+        "utter_ask_library_hours": 19,
+        "utter_ask_registration": 20,
+        "utter_cheating_info": 21,
+        "utter_cheer_up": 22,
+        "utter_did_that_help": 23,
+        "utter_goodbye": 24,
+        "utter_greet": 25,
+        "utter_happy": 26,
+        "utter_iamabot": 27,
+        "utter_thanks": 28
+      },
+      "entities": {
+        "matiere": 0,
+        "test": 1,
+        "year": 2
+      },
+      "slots": {
+        "year_0": 0
+      },
+      "active_loop": {}
+    }
+  },
+  "remove_duplicates": true,
+  "max_history": 5
+}

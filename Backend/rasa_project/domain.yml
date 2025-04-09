@@ -11,7 +11,7 @@ intents:
   - thanks
   - ask_course_schedule
   - ask_exam_dates
-  - ask_location
+  - ask_classroom_location
   - ask_grades
   - ask_registration
   - ask_internship_info
@@ -19,6 +19,7 @@ intents:
   - inform_year
   - ask_alternance_info
   - ask_cheating_info
+<<<<<<< HEAD
   - demander_horaires_ecole
   - demander_frais_inscription
   - demander_aides_financieres
@@ -26,6 +27,13 @@ intents:
   - demander_specialites
   - demander_reglementation_examens
   - demander_regles_interieures
+=======
+  - ask_study_abroad
+  - ask_double_degree
+  - ask_student_housing
+  - ask_canteen_hours
+  - ask_school_activities
+>>>>>>> origin/main
 
 entities:
   - matiere
@@ -41,7 +49,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Bonjour ! Comment vas-tu ?"
+    - text: "Bonjour ! "
 
   utter_cheer_up:
     - text: "Oh, ne t'inquiète pas, ça va aller !"
@@ -62,34 +70,82 @@ responses:
     - text: "Avec plaisir 😊"
 
   utter_ask_course_schedule:
-    - text: "Précise moi dans quelle classe tu es afin que je puisse t'envoyer le lien de l'emploi du temps correspondant."
-
-  utter_course_schedule_based_on_year:
-    - text: "Here is your course schedule."
+    - text: |
+        Je t'envoie les liens des emplois du temps selon la promotion :
+        - IATIC3 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC3
+        - IATIC4 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC4
+        - IATIC5 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC5
 
   utter_ask_exam_dates:
     - text: "Les examens sont présents sur l'emploi du temps."
 
-  utter_ask_location:
-    - text: "Les salles sont précisées sur l'emploi du temps."
+  utter_ask_classroom_location:
+    - text: "Les salles des cours sont précisées sur l'emploi du temps."
 
   utter_ask_grades:
     - text: "Tu peux consulter tes notes sur l'ENT ou via le portail étudiant."
 
   utter_ask_registration:
-    - text: "L’inscription se fait en ligne via le portail de l’université. Tu veux que je t’envoie le lien ?"
+    - text: |
+        L’inscription se fait en ligne via le portail de l’université.  
+        Voici le lien : https://www.isty.uvsq.fr/cycle-ingenieur-informatique-admission-1
 
   utter_ask_internship_info:
-    - text: "Pour les stages, contacte le service des stages ou regarde sur la page web dédiée."
+    - text: |
+        Pour les stages, la durée doit être de : 
+        - 1 à 2 mois en entreprise pour les IATIC3
+        - 3 à 4 mois en entreprise pour les IATIC4
+        - 6 mois en entreprise pour les IATIC5
+        Pour plus d'informations, tu peux :
+        - Contacter le service des stages : gestion.stage@isty.uvsq.fr
+        - Regarder sur la page web dédiée : http://stages.isty.uvsq.fr/
 
   utter_ask_library_hours:
-    - text: "La bibliothèque est ouverte du lundi au vendredi de 8h30 à 19h."
+    - text: "La bibliothèque universitaire de Vélizy est ouverte du lundi au vendredi de 8h30 à 17h30."
 
   utter_ask_alternance_info:
-    - text: "L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise. Elle peut être réalisée dans certaines filières et est souvent rémunérée. Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires."
+    - text: |
+        L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise.  
+        Elle peut être réalisée pour toutes les spécialités et est souvent rémunérée.  
+        Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires :  
+        https://www.isty.uvsq.fr/contrat-de-professionnalisation
 
   utter_cheating_info:
-    - text: "La tricherie est strictement interdite dans notre établissement. Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion. Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête."
+    - text: |
+        La tricherie est strictement interdite dans notre établissement, comme cela est précisé sur le règlement intérieur.  
+        Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion.  
+        Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête.
+
+  utter_ask_study_abroad:
+    - text: |
+        Il est possible de faire un semestre à l'étranger en dernière année, à condition d'avoir le TOEIC.  
+        L'école propose plusieurs partenariats avec des universités étrangères.  
+        Plus d'informations ici : https://www.isty.uvsq.fr/partir-a-letranger
+
+  utter_ask_double_degree:
+    - text: |
+        Un double diplôme est proposé en dernière année pour les élèves en filière Informatique, sous certaines conditions.  
+        Voici la page web dédiée : https://www.isty.uvsq.fr/enseignements
+
+  utter_ask_student_housing:
+    - text: |
+        Il existe des logements étudiants CROUS, et des résidences privées partenaires. 
+        Tu peux aussi aller voir la plateforme CASA de l'Université Paris-Saclay.
+        Voici la page web dédiée aux logements : https://www.isty.uvsq.fr/logement
+
+  utter_ask_canteen_hours:
+    - text: |
+        - La cantine du CROUS est ouverte du lundi au vendredi de 11h30 à 13h30.
+        - La cafétéria du CROUS est ouverte du lundi au vendredi de 8h30 à 15h.
+
+  utter_ask_school_activities:
+    - text: |
+        L’école propose plusieurs activités :
+        - associations étudiantes
+        - événements culturels
+        - clubs sportifs
+        - soirées étudiantes
+        Tu peux rejoindre un club via le BDE ou consulter l’affichage sur place.
 
   utter_reglementation_examens:
     - text: |
