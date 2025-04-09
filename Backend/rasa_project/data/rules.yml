@@ -16,16 +16,6 @@ rules:
       - intent: thanks
       - action: utter_thanks
 
-  - rule: Ask exam dates
-    steps:
-      - intent: ask_exam_dates
-      - action: utter_ask_exam_dates
-
-  - rule: Ask for classroom location
-    steps:
-      - intent: ask_location
-      - action: utter_ask_location
-
   - rule: Ask for grades
     steps:
       - intent: ask_grades
@@ -60,8 +50,3 @@ rules:
     steps:
       - intent: ask_course_schedule
       - action: utter_ask_course_schedule
-
-  - rule: Answer course schedule based on year
-    steps:
-      - intent: inform_year
-      - action: utter_course_schedule_based_on_year

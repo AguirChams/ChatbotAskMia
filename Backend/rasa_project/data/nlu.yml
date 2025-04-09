@@ -198,9 +198,9 @@ nlu:
       - À quelle date est prévu le prochain [examen](test) de [communication](matiere) ?
       - Le prochain [DS](test) de [physique](matiere) est quand ?
 
-  - intent: ask_location
+  - intent: ask_classroom_location
     examples: |
-      - Où a lieu le cours de droit ?
+      - Où a lieu le cours de [maths](matiere) ?
       - Dans quelle salle est mon TD ?
       - C’est dans quel bâtiment le cours ?
       - Où se trouve l’amphi B ?
@@ -214,6 +214,8 @@ nlu:
       - Mes notes sont-elles disponibles ?
       - Comment accéder à mes bulletins ?
       - Est-ce que les notes du partiel sont publiées ?
+      - quelle est ma note en [maths](matiere) ?
+      - j'ai eu combien en [anglais](matiere) ?
 
   - intent: ask_registration
     examples: |

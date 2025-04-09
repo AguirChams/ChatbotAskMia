@@ -11,7 +11,7 @@ intents:
   - thanks
   - ask_course_schedule
   - ask_exam_dates
-  - ask_location
+  - ask_classroom_location
   - ask_grades
   - ask_registration
   - ask_internship_info
@@ -34,7 +34,7 @@ slots:
 
 responses:
   utter_greet:
-    - text: "Bonjour ! Comment vas-tu ?"
+    - text: "Bonjour !"
 
   utter_cheer_up:
     - text: "Oh, ne t'inquiète pas, ça va aller !"
@@ -55,34 +55,43 @@ responses:
     - text: "Avec plaisir 😊"
 
   utter_ask_course_schedule:
-    - text: "Précise moi dans quelle classe tu es afin que je puisse t'envoyer le lien de l'emploi du temps correspondant."
-
-  utter_course_schedule_based_on_year:
-    - text: "Here is your course schedule."
+    - text: >
+        Je t'envoie les liens des emplois du temps selon la promotion : \n\n
+        IATIC3 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC3 \n
+        IATIC4 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC4 \n
+        IATIC5 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC5
 
   utter_ask_exam_dates:
     - text: "Les examens sont présents sur l'emploi du temps."
 
-  utter_ask_location:
+  utter_ask_classroom_location:
     - text: "Les salles sont précisées sur l'emploi du temps."
 
   utter_ask_grades:
     - text: "Tu peux consulter tes notes sur l'ENT ou via le portail étudiant."
 
   utter_ask_registration:
-    - text: "L’inscription se fait en ligne via le portail de l’université. Tu veux que je t’envoie le lien ?"
+    - text: >
+        L’inscription se fait en ligne via le portail de l’université. \n
+        Voici le lien : https://www.isty.uvsq.fr/cycle-ingenieur-informatique-admission-1
 
   utter_ask_internship_info:
     - text: "Pour les stages, contacte le service des stages ou regarde sur la page web dédiée."
 
   utter_ask_library_hours:
-    - text: "La bibliothèque est ouverte du lundi au vendredi de 8h30 à 19h."
+    - text: "La bibliothèque universitaire est ouverte du lundi au vendredi de 8h30 à 17h30."
 
   utter_ask_alternance_info:
-    - text: "L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise. Elle peut être réalisée dans certaines filières et est souvent rémunérée. Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires."
+    - text: >
+        L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise.\n 
+        Elle peut être réalisée dans certaines filières et est souvent rémunérée.\n
+        Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires : \n
 
   utter_cheating_info:
-    - text: "La tricherie est strictement interdite dans notre établissement. Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion. Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête."
+    - text: >
+        La tricherie est strictement interdite dans notre établissement. \n
+        Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion. \n
+        Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête.
 
 session_config:
   session_expiration_time: 60

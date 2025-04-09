@@ -28,9 +28,14 @@ stories:
       - intent: deny
       - action: utter_goodbye
 
-  - story: Ask course schedule flow
+  - story: exams
     steps:
-      - intent: ask_course_schedule
+      - intent: ask_exam_dates
+      - action: utter_ask_exam_dates
       - action: utter_ask_course_schedule
-      - intent: inform_year
-      - action: utter_course_schedule_based_on_year
+
+  - story: classroom locations
+    steps:
+      - intent: ask_classroom_location
+      - action: utter_ask_classroom_location
+      - action: utter_ask_course_schedule
