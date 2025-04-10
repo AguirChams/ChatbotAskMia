@@ -1,50 +1,66 @@
-from flask import *
+from flask import Flask, request, jsonify, render_template
+from flask_cors import CORS
 import os
 from pathlib import Path
 import datetime
-import requests
-
 import models
-
-RASA_API_URL= 'http://localhost:5005/webhooks/rest/webhook'
+import hashlib
 
 directoryBack = os.getcwd()
-directoryFront = str(
-    Path(directoryBack).parents[0]) + os.sep + "AskMia-Frontend"
+directoryFront = str(Path(directoryBack).parents[0]) + os.sep + "AskMia-Frontend"
 app = Flask(__name__, template_folder=directoryFront)
-
+CORS(app)  # Pour permettre à JS (frontend) de communiquer avec Flask
 
 @app.route("/")
 def page_principale():
     return render_template("Index.html")
 
-
 @app.route("/connexion")
 def page_connexion():
     return render_template("Create-account.html")
 
-@app.route('/webhook', methods=['POST'])
-def webhook():
-    user_message=request.json['message']
-    print("User Message:", user_message)
+# -------- ROUTES API -------- #
+@app.route("/api/login/student", methods=["POST"])
+def login_student():
+    data = request.get_json()
+    student_id = int(data.get("student_id"))
+    password = data.get("password")
 
-    rasa_response = requests.post(RASA_API_URL, json={'message' : user_message})
-    rasa_response_json = rasa_response.json()
+    # Hasher le mot de passe entré par l'utilisateur
+    password_hash = hashlib.sha256(password.encode()).hexdigest()
 
-    print("Rasa Resoonse:", rasa_response_json)
+    stored_password = models.get_mdp_from_etudiant(student_id)
 
-    bot_response = rasa_response_json[0]['text'] if rasa_response_json else "Désolé, je n'ai pas compris."
-    return jsonify({'response': bot_response})
+    print("Mot de passe stocké :", stored_password)
+    print("Mot de passe hashé saisi :", password_hash)
 
-    
-# à mettre dans des routes selon le js
-"""models.create_new_etudiant(
-    22101371, "Lampin", "Vivien", datetime.datetime(2003, 10, 4), "test", "IATIC3")
-print(models.get_mdp_from_etudiant(22101371))
-models.update_mdp_etudiant(22101371, "test2")
-print(models.get_mdp_from_etudiant(22101371))
-models.delete_etudiant(22101371)
-print(models.get_mdp_from_etudiant(22101371))
-models.update_mdp_etudiant(22101371, "test2")
-"""
+    if stored_password == password_hash:
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
 
+
+
+@app.route("/api/login/admin", methods=["POST"])
+def login_admin():
+    data = request.get_json()
+    admin_id = data.get("admin_id")
+
+    # Ici tu peux ajouter ta logique admin plus tard
+    if admin_id == "admin123": 
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False})
+
+@app.route("/debug/etudiants")
+def debug_etudiants():
+    etudiants = models.get_all_etudiants()
+    html = "<h2>Étudiants enregistrés :</h2><ul>"
+    for e in etudiants:
+        html += f"<li>ID: {e.numeroEtudiant}, Nom: {e.nom}, Prénom: {e.prenom}, MDP hashé: {e.motDePasse}, Classe: {e.classe}</li>"
+    html += "</ul>"
+    return html
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

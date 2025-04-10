@@ -80,3 +80,11 @@ def delete_etudiant(numEtudiant):
             conn.execute(stmt)
             conn.commit()
         conn.close()
+
+def get_all_etudiants():
+    stmt = select(table_etudiant)
+    with engine.connect() as conn:
+        result = conn.execute(stmt)
+        rows = result.fetchall()
+    conn.close()
+    return rows

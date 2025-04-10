@@ -1,229 +1,62 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Créer un compte - AskMia</title>
-    <!--<link rel="stylesheet" href="css/style.css" /> -->
-    <style>
-      body {
-        margin: 0;
-        font-family: "Segoe UI", sans-serif;
-        background: white;
-        color: #8b8989;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Créer un compte - AskMia</title>
+  <link rel="stylesheet" href="css/Style.css"/>
+</head>
+<body>
 
-      .container {
-        width: 550px;
-        margin: 0 auto;
-        padding: 40px 20px;
-      }
+  <div class="bubble bubble1"></div>
+  <div class="bubble bubble2"></div>
+  <div class="bubble bubble3"></div>
+  <div class="bubble bubble4"></div>
+ 
 
-      .logo {
-        height: 80px;
-        position: absolute;
-        left: 20px;
-        top: 25px;
-      }
+  <div class="container">
+    <header>
+      <img src="Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo"/>
+    </header>
 
-      header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        padding-bottom: 20px;
-      }
+    <form id="Logout">
+    <button type="submit" class="btn2">Se deconnecter</button>
+    </form>
+    
+    <main class="form-container-center">
+      <h1>Créer un compte</h1>
+  
+      <form id="Create-acc">
+        <div class="form-group">
+          <label for="surname">Nom :</label>
+          <input type="text" id="surname" name="surname" required>
+        </div>
+      
+        <div class="form-group">
+          <label for="name">Prénom :</label>
+          <input type="text" id="name" name="name" required>
+        </div>
 
-      .form-container-center {
-        margin-top: 200px;
-        background: #f9f9f9;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
+        <div class="form-group">
+          <label for="birthdate">Date de naissance :</label>
+          <input type="date" id="birthdate" name="birthdate" required>
+        </div>
 
-      .login-layout {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        gap: 80px;
-        margin-top: 150px;
-      }
+        <div class="form-group">
+          <label for="class">Classe :</label>
+          <input type="text" id="class" name="Class" required>
+        </div>
 
-      .intro-text {
-        position: absolute;
-        left: 200px;
-        top: 320px;
-        width: 500px;
-      }
+        <div class="form-group">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password" required>
+        </div>    
+        <button type="submit" class="btn">Créer</button>
+      </form>
+      
+    </main>
+  </div>
 
-      .intro-text h1 {
-        color: #6f0142;
-        font-size: 60px;
-        margin-bottom: 20px;
-        text-align: left;
-      }
-
-      .intro-text p {
-        font-size: 35px;
-        color: #333;
-        line-height: 1.5;
-      }
-
-      .form-container-right {
-        position: absolute;
-        right: 400px;
-        top: 300px;
-        width: 450px;
-        background: #f9f9f9;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      }
-
-      h1 {
-        text-align: center;
-        margin-bottom: 60px;
-        color: #333;
-      }
-
-      .form-group {
-        display: flex;
-        align-items: center;
-        margin-bottom: 20px;
-        padding: 0 20px;
-      }
-
-      form label {
-        width: 180px;
-        margin: 0;
-        font-weight: 500;
-        color: #8b8989;
-      }
-
-      input {
-        padding: 10px;
-        background-color: #dfcad6;
-        border: 1px solid #dfcad6;
-        border-radius: 20px;
-        width: 250px;
-      }
-
-      .btn {
-        background-color: #6f0142;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 60px;
-        margin-left: 120px;
-        width: 50%;
-      }
-
-      .btn1 {
-        background-color: #6f0142;
-        color: white;
-        padding: 12px;
-        border: none;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 16px;
-        margin-top: 15px;
-        margin-left: 120px;
-        width: 50%;
-      }
-      .btn:hover {
-        background-color: #7c054b;
-      }
-
-      .btn1:hover {
-        background-color: #7c054b;
-      }
-      .bubble {
-        position: absolute;
-        border-radius: 50%;
-        background-color: rgba(100, 149, 237, 0.2);
-        z-index: 0;
-      }
-
-      .bubble1 {
-        width: 120px;
-        height: 120px;
-        top: 40px;
-        right: 0px;
-        background-color: #67c2eca8;
-      }
-
-      .bubble2 {
-        width: 120px;
-        height: 120px;
-        top: -20px;
-        right: 30px;
-        background-color: #7c054ada;
-      }
-
-      .bubble3 {
-        width: 120px;
-        height: 120px;
-        bottom: 0px;
-        left: 50px;
-        background-color: #38b8f38e;
-      }
-
-      .bubble4 {
-        width: 160px;
-        height: 180px;
-        bottom: 0px;
-        left: -50px;
-        background-color: #6d0441e5;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="bubble bubble1"></div>
-    <div class="bubble bubble2"></div>
-    <div class="bubble bubble3"></div>
-    <div class="bubble bubble4"></div>
-
-    <div class="container">
-      <header>
-        <img src="Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
-      </header>
-
-      <main class="form-container-center">
-        <h1>Créer un compte</h1>
-
-        <form>
-          <div class="form-group">
-            <label for="surname">Nom :</label>
-            <input type="text" id="surname" name="surname" required />
-          </div>
-
-          <div class="form-group">
-            <label for="name">Prénom :</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-
-          <div class="form-group">
-            <label for="birthdate">Date de naissance :</label>
-            <input type="text" id="date" name="birthdate" required />
-          </div>
-
-          <div class="form-group">
-            <label for="class">Classe :</label>
-            <input type="text" id="class" name="Class" required />
-          </div>
-
-          <div class="form-group">
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-          <button type="submit" class="btn">Créer</button>
-        </form>
-      </main>
-    </div>
-
-    <script src="js/login.js"></script>
-  </body>
+  <script src="js/Create-account.js"></script>
+</body>
 </html>
