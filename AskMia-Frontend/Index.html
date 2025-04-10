@@ -1,146 +1,165 @@
 ﻿<!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Accueil - Mia Assistante Virtuelle</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: white;
-      position: relative;
-      overflow-x: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accueil - Mia Assistante Virtuelle</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: white;
+        position: relative;
+        overflow-x: hidden;
+      }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px;
-    }
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
 
-    header img {
-      height: 60px;
-    }
+      header img {
+        height: 60px;
+      }
 
-    .btn-profil {
-      background-color: #6d1246;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 14px;
-      margin-right: 10px;
-    }
+      .btn-profil {
+        background-color: #6d1246;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 14px;
+        margin-right: 10px;
+      }
 
-    .content {
-      text-align: center;
-      margin-top: 60px;
-    }
+      .content {
+        text-align: center;
+        margin-top: 60px;
+      }
 
-    .content h1 {
-      font-size: 28px;
-      color: #222;
-    }
+      .content h1 {
+        font-size: 28px;
+        color: #222;
+      }
 
-    .content p {
-      font-size: 16px;
-      color: #555;
-      margin-bottom: 40px;
-    }
+      .content p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 40px;
+      }
 
-    .chat-box {
-      width: 60%;
-      height: 300px;
-      background-color: #fdfdfd;
-      margin: 0 auto;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.03);
-    }
+      .chat-box {
+        width: 60%;
+        height: 300px;
+        background-color: #fdfdfd;
+        margin: 0 auto;
+        border-radius: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.03);
+      }
 
-    .input-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 20px;
-    }
+      .input-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
 
-    .input-container input {
-      padding: 12px 20px;
-      width: 300px;
-      border-radius: 20px;
-      border: none;
-      background-color: #f5f5f5;
-      font-size: 14px;
-      outline: none;
-    }
+      .input-container input {
+        padding: 12px 20px;
+        width: 300px;
+        border-radius: 20px;
+        border: none;
+        background-color: #f5f5f5;
+        font-size: 14px;
+        outline: none;
+      }
 
-    .input-container button {
-      margin-left: 10px;
-      background-color: #6d1246;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 20px;
-      cursor: pointer;
-    }
+      .input-container button {
+        margin-left: 10px;
+        background-color: #6d1246;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
 
-    /* Decorative Circles */
-    .circles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
+      /* Decorative Circles */
+      .circles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
 
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 0.5;
-    }
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.5;
+      }
 
-    .circle.blue {
-      background-color: #a9d8f4;
-    }
+      .circle.blue {
+        background-color: #a9d8f4;
+      }
 
-    .circle.purple {
-      background-color: #6d1246;
-    }
+      .circle.purple {
+        background-color: #6d1246;
+      }
 
-    .bottom-left { bottom: 0; left: 0; width: 150px; height: 150px; }
-    .bottom-right { bottom: 0; right: 0; width: 120px; height: 120px; }
-    .overlap { bottom: 30px; right: 30px; width: 100px; height: 100px; }
-  </style>
-</head>
-<body>
+      .bottom-left {
+        bottom: 0;
+        left: 0;
+        width: 150px;
+        height: 150px;
+      }
+      .bottom-right {
+        bottom: 0;
+        right: 0;
+        width: 120px;
+        height: 120px;
+      }
+      .overlap {
+        bottom: 30px;
+        right: 30px;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        src="{{ url_for('static', filename='Assets/logo-uvsq.png') }}"
+        alt="Logo UVSQ"
+      />
+      <button class="btn-profil">Profil</button>
+    </header>
 
-  <header>
-    <img src="logouvsq.png" alt="Logo UVSQ">
-    <button class="btn-profil">Profil</button>
-  </header>
+    <div class="content">
+      <h1>Bonjour, je suis Mia.</h1>
+      <p>Je suis votre assistante virtuelle, posez-moi votre question</p>
 
-  <div class="content">
-    <h1>Bonjour, je suis Mia.</h1>
-    <p>Je suis votre assistante virtuelle, posez-moi votre question</p>
+      <div class="chat-box"></div>
 
-    <div class="chat-box"></div>
-
-    <div class="input-container">
-      <input type="text" placeholder="Posez moi votre question...">
-      <button>Entrer</button>
+      <div class="input-container">
+        <input type="text" placeholder="Posez moi votre question..." />
+        <button>Entrer</button>
+      </div>
     </div>
-  </div>
 
-  <!-- Decorative Circles -->
-  <div class="circles">
-    <div class="circle purple bottom-left"></div>
-    <div class="circle blue bottom-left" style="left: 50px; bottom: 50px;"></div>
+    <!-- Decorative Circles -->
+    <div class="circles">
+      <div class="circle purple bottom-left"></div>
+      <div
+        class="circle blue bottom-left"
+        style="left: 50px; bottom: 50px"
+      ></div>
 
-    <div class="circle blue bottom-right"></div>
-    <div class="circle purple overlap"></div>
-  </div>
-
-</body>
+      <div class="circle blue bottom-right"></div>
+      <div class="circle purple overlap"></div>
+    </div>
+  </body>
 </html>

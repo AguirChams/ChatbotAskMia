@@ -8,7 +8,10 @@ import hashlib
 
 directoryBack = os.getcwd()
 directoryFront = str(Path(directoryBack).parents[0]) + os.sep + "AskMia-Frontend"
-app = Flask(__name__, template_folder=directoryFront)
+app = Flask(__name__, 
+            template_folder=directoryFront, 
+            static_folder=os.path.join(directoryFront, "static"))
+
 CORS(app)  # Pour permettre à JS (frontend) de communiquer avec Flask
 
 @app.route("/")
