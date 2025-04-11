@@ -192,3 +192,111 @@ bottom: 0px;
 left: -50px;
 background-color:#6d0441e5 
 }
+
+
+.btn-profil {
+  background-color: #6f0142;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  position: absolute;
+  right: 50px;
+  top: 30px;
+}
+
+.content {
+  max-width: 700px;
+  margin: 150px auto 0;
+  text-align: center;
+}
+
+.content h1 {
+  color: #6f0142;
+  font-size: 50px;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 24px;
+  color: #444;
+  margin-bottom: 40px;
+}
+
+.chat-box {
+  height: 300px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.input-container input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+}
+
+.input-container button {
+  background-color: #6f0142;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Decorative circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+.circle.purple {
+  background-color: #7c054b;
+  width: 100px;
+  height: 100px;
+}
+
+.circle.blue {
+  background-color: #67c2eca8;
+  width: 80px;
+  height: 80px;
+}
+
+.circle.bottom-left {
+  left: 20px;
+  bottom: 20px;
+}
+
+.circle.bottom-right {
+  right: 20px;
+  bottom: 20px;
+}
+
+.circle.overlap {
+  right: 60px;
+  bottom: 60px;
+  width: 60px;
+  height: 60px;
+  background-color: #38b8f38e;
+}
+
+header img {
+  height: 60px; /* Ajuste cette valeur si tu veux une taille différente */
+}
+
+
