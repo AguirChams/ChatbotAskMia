@@ -118,10 +118,40 @@ rules:
 
   - rule: Répondre à la réglementation des examens
     steps:
-      - intent: demander_reglementation_examens
+      - intent: demander_regles_examens
       - action: utter_reglementation_examens
 
   - rule: Répondre aux règles intérieures
     steps:
       - intent: demander_regles_interieures
       - action: utter_regles_interieures
+
+  - rule: Donner des informations sur l'infirmerie
+    steps:
+      - intent: demander_infirmerie
+      - action: utter_infirmerie
+
+  - rule: Répondre durée scolarité
+    steps:
+      - intent: demander_duree_diplome
+      - action: utter_duree_diplome
+
+  - rule: Répondre contact scolarité
+    steps:
+      - intent: demander_contact_administration
+      - action: utter_contact_scolarite
+
+  - rule: Répondre à salut comment ça va
+    steps:
+      - intent: saluer_et_demander_ca_va
+      - action: utter_saluer_et_demander_ca_va
+
+  - rule: Répondre à comment ça va
+    steps:
+      - intent: demander_comment_ca_va
+      - action: utter_demander_comment_ca_va
+
+  - rule: Présenter les requêtes possibles
+    steps:
+      - intent: demander_services_chatbot
+      - action: utter_demander_services_chatbot

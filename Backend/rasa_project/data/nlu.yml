@@ -17,6 +17,40 @@ nlu:
       - enchanté
       - wesh
 
+  - intent: saluer_et_demander_ca_va
+    examples: |
+      - Salut, ça va ?
+      - Bonjour, comment tu vas ?
+      - Coucou, tu vas bien ?
+      - Hey, tout roule ?
+      - Hi, Ça va ?
+      - Bonjour, comment tu te sens aujourd'hui ?
+      - Bien le bonjour, comment ça va ?
+      - Yo ! Tu vas bien ?
+      - Salut, Alors, quoi de neuf ?
+      - Hello, Tu vas bien le bot ?
+      - Enchanté, comment ça va ce matin ?
+      - Heyyy, Tout va bien ?
+      - Comment tu vas mon pote ?
+      - Hey, Ça va le chatbot ?
+      - Hello, Tu te portes bien ?
+
+  - intent: demander_comment_ca_va
+    examples: |
+      - Comment ça va ?
+      - Tu vas bien ?
+      - Ça va ?
+      - Tout va bien ?
+      - Tu te sens bien ?
+      - Ça roule ?
+      - Ça va aujourd’hui ?
+      - Comment tu te sens ?
+      - Comment tu vas ?
+      - Est-ce que ça va ?
+      - Tu vas bien le bot ?
+      - Alors, ça va ?
+      - Ça va chez toi ?
+
   - intent: goodbye
     examples: |
       - au revoir
@@ -102,6 +136,26 @@ nlu:
       - je suis débordé de travail
       - je suis débordée de travail
       - trop de devoirs
+
+  - intent: demander_services_chatbot
+    examples: |
+      - Que peux-tu faire ?
+      - Quels sont tes services ?
+      - À quoi sers-tu ?
+      - Qu'est ce que je peux te poser comme questions ?
+      - Tu peux m'aider avec quoi ?
+      - Quelles questions je peux te poser ?
+      - Qu'est-ce que tu sais faire ?
+      - Tu réponds à quels types de questions ?
+      - Quelles infos tu peux me donner ?
+      - Tu es là pour quoi ?
+      - Tu peux m’aider sur quoi ?
+      - Tu peux me guider sur quels sujets ?
+      - C’est quoi ton rôle ?
+      - Tu fais quoi exactement ?
+      - Tu peux me dire à quoi tu sers ?
+      - Tu m’aides comment ?
+      - Qu’est-ce que je peux te demander ?
 
   - intent: bot_challenge
     examples: |
@@ -205,7 +259,6 @@ nlu:
       - Où a lieu le cours de [maths](matiere) ?
       - Dans quelle salle est mon TD ?
       - C’est dans quel bâtiment le cours ?
-      - Où se trouve l’amphi B ?
       - Le cours est dans quelle salle ?
       - Je ne trouve pas la salle 104
 
@@ -337,7 +390,6 @@ nlu:
       - J’aimerais faire un double diplôme
       - Est-ce possible de faire deux diplômes en même temps ?
       - Le double diplôme est-il reconnu ?
-      - Quelle est la durée d’un double diplôme ?
       - Est-ce que le double diplôme est en partenariat avec une autre école ?
       - Peut-on faire un double diplôme à l’étranger ?
       - Est-ce que c’est sélectif pour faire un double diplôme ?
@@ -486,6 +538,7 @@ nlu:
       - Existe-t-il des aides financières ?
       - Y a-t-il des bourses disponibles ?
       - j'ai des difficultées financières
+      - Comment bénéficier d'une bourse CROUS ?
       - Est-ce que je peux bénéficier d'une aide pour payer mes études ?
       - Quelles sont les aides disponibles pour les étudiants ?
 
@@ -494,6 +547,7 @@ nlu:
       - Quel est le diplôme délivré par l'ISTY ?
       - Quelle est la valeur du diplôme de l'ISTY ?
       - Le diplôme est reconnu en entreprise ?
+      - Est-ce reconnu comme un diplôme d'ingénieur ?
       - Quelle est la reconnaissance du diplôme en [informatique](specialite) ?
       - Et pour la spécialité [mécatronique](specialite), le diplôme est-il reconnu ?
 
@@ -503,3 +557,45 @@ nlu:
       - Dans quelles spécialités peut-on se former ?
       - Quelles formations sont disponibles ?
       - L’ISTY forme à quels domaines ?
+
+  - intent: demander_infirmerie
+    examples: |
+      - Où se trouve l'infirmerie ?
+      - Je me sens mal, je peux aller à l'infirmerie ?
+      - Est-ce qu’il y a une infirmerie dans l’école ?
+      - Comment contacter l’infirmerie ?
+      - Quels sont les horaires de l’infirmerie ?
+      - À qui je parle si j’ai un problème de santé ?
+      - Je dois voir un infirmier, c’est possible ?
+      - Je me suis blessé, où aller ?
+      - Est-ce qu’un médecin passe à l’école ?
+      - Y a-t-il des soins médicaux sur place ?
+      - Que faire en cas de malaise en cours ?
+
+  - intent: demander_duree_diplome
+    examples: |
+      - Combien d’années dure le diplôme ?
+      - Quelle est la durée des études ?
+      - Il faut combien d’années pour obtenir le diplôme ?
+      - En combien d’années on termine le cursus ?
+      - Le diplôme se fait en combien de temps ?
+      - C’est un diplôme en combien d’années ?
+      - Combien d’années pour finir les études ?
+      - La formation dure combien de temps ?
+      - Quelle est la durée du programme ?
+      - Le cursus complet, il prend combien d’années ?
+      - En combien d’années obtient-on le diplôme ?
+
+  - intent: demander_contact_administration
+    examples: |
+      - Comment contacter l'administration ?
+      - Peux-tu me donner le contact de l'administration ?
+      - Qui dois-je appeler pour joindre l'administration ?
+      - Je peux avoir l'email de l'administration ?
+      - C’est quoi le numéro de téléphone de l’administration ?
+      - Comment joindre le secrétariat ?
+      - As-tu les coordonnées de l'administration ?
+      - Où puis-je trouver les contacts administratifs ?
+      - J’ai besoin du contact du service administratif
+      - L’administration a un numéro ou un mail ?
+      - Comment parler avec quelqu’un de l’administration ?

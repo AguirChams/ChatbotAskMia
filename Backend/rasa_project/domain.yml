@@ -25,11 +25,18 @@ intents:
   - demander_diplome
   - demander_specialites
   - demander_regles_interieures
+  - demander_regles_examens
   - ask_study_abroad
   - ask_double_degree
   - ask_student_housing
   - ask_canteen_hours
   - ask_school_activities
+  - demander_infirmerie
+  - demander_duree_diplome
+  - demander_contact_administration
+  - saluer_et_demander_ca_va
+  - demander_comment_ca_va
+  - demander_services_chatbot
 
 entities:
   - matiere
@@ -39,41 +46,41 @@ entities:
 
 responses:
   utter_greet:
-    - text: "Bonjour ! "
+    - text: "Bonjour ! 😊"
 
   utter_cheer_up:
-    - text: "Oh, ne t'inquiète pas, ça va aller !"
+    - text: "Oh, désolé d'apprendre cela. Ne t'inquiète pas, ça va aller ! 💪"
 
   utter_did_that_help:
     - text: "Est-ce que cela t'as aidé ?"
 
   utter_happy:
-    - text: "Super !"
+    - text: "Super ! 😄"
 
   utter_goodbye:
     - text: "Bye ! À bientôt 👋"
 
   utter_iamabot:
-    - text: "Je suis Mia, l'assistante virtuelle de l'ISTY."
+    - text: "Je suis Mia, l'assistante virtuelle de l'ISTY. 🤖"
 
   utter_thanks:
     - text: "Avec plaisir 😊"
 
   utter_ask_course_schedule:
     - text: |
-        Je t'envoie les liens des emplois du temps selon la promotion :
+        Je t'envoie les liens des emplois du temps selon la promotion 📅:
         - IATIC3 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC3
         - IATIC4 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC4
         - IATIC5 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC5
 
   utter_ask_exam_dates:
-    - text: "Les examens sont présents sur l'emploi du temps."
+    - text: "Les examens sont présents sur l'emploi du temps. 📘"
 
   utter_ask_classroom_location:
-    - text: "Les salles des cours sont précisées sur l'emploi du temps."
+    - text: "Les salles des cours sont précisées sur l'emploi du temps. 📘"
 
   utter_ask_grades:
-    - text: "Tu peux consulter tes notes sur l'ENT ou via le portail étudiant."
+    - text: "Tu peux consulter tes notes sur l'ENT ou via le portail étudiant. 📝"
 
   utter_ask_registration:
     - text: |
@@ -91,56 +98,60 @@ responses:
         - Regarder sur la page web dédiée : http://stages.isty.uvsq.fr/
 
   utter_ask_library_hours:
-    - text: "La bibliothèque universitaire de Vélizy est ouverte du lundi au vendredi de 8h30 à 17h30."
+    - text: "La bibliothèque universitaire de Vélizy est ouverte du lundi au vendredi de 8h30 à 17h30. 📚"
 
   utter_ask_alternance_info:
     - text: |
         L’alternance est une modalité de formation qui permet de combiner études et travail en entreprise.  
-        Elle peut être réalisée pour toutes les spécialités et est souvent rémunérée.  
+        Elle peut être réalisée pour toutes les spécialités et est souvent rémunérée. 💰 
         Pour plus d’infos, je peux t’orienter vers le service dédié ou des entreprises partenaires :  
         https://www.isty.uvsq.fr/contrat-de-professionnalisation
 
   utter_cheating_info:
     - text: |
-        La tricherie est strictement interdite dans notre établissement, comme cela est précisé sur le règlement intérieur.  
+        La tricherie est strictement interdite dans notre établissement, comme cela est précisé sur le règlement intérieur 🚫.  
         Si tu es pris en flagrant délit de tricherie, des sanctions sévères peuvent être appliquées, y compris l'exclusion.  
         Il est important de toujours respecter l'intégrité académique et de travailler de manière honnête.
 
   utter_ask_study_abroad:
     - text: |
-        Il est possible de faire un semestre à l'étranger en dernière année, à condition d'avoir le TOEIC.  
-        L'école propose plusieurs partenariats avec des universités étrangères.  
+        Il est possible de faire un semestre à l'étranger en dernière année 🌍, à condition d'avoir le TOEIC.  
+        L'école propose plusieurs partenariats avec des universités étrangères, notamment : 
+        - Angleterre : Coventry University - Coventry   (Mécatronique)
+        - Corée du Sud :  Ajou University - Suwon  (Informatique, Mécatronique)
+        - Japon : Hosei University - Tokyo  (Informatique, Mécatronique)      
         Plus d'informations ici : https://www.isty.uvsq.fr/partir-a-letranger
 
   utter_ask_double_degree:
     - text: |
-        Un double diplôme est proposé en dernière année pour les élèves en filière Informatique, sous certaines conditions.  
+        Il est possible de suivre un Master 🎓 de l'Université Paris Saclay en parallèle de la dernière année du Cycle ingénieur pour les élèves en filière Informatique, sous certaines conditions. 
+        Les Masters proposés : 
+        - Master CHPS (UVSQ)
+        - Master SeCReTS (Paris-Saclay)
+        - Master IRS (Paris-Saclay)
+        - un M2 de l’université Paris-Saclay éligible au diplôme de la spécialité. 
         Voici la page web dédiée : https://www.isty.uvsq.fr/enseignements
 
   utter_ask_student_housing:
     - text: |
-        Il existe des logements étudiants CROUS, et des résidences privées partenaires. 
+        Il existe des logements étudiants CROUS, et des résidences privées partenaires. 🏠
         Tu peux aussi aller voir la plateforme CASA de l'Université Paris-Saclay.
         Voici la page web dédiée aux logements : https://www.isty.uvsq.fr/logement
 
   utter_ask_canteen_hours:
     - text: |
-        - La cantine du CROUS est ouverte du lundi au vendredi de 11h30 à 13h30.
-        - La cafétéria du CROUS est ouverte du lundi au vendredi de 8h30 à 15h.
+        🍽 La cantine du CROUS est ouverte du lundi au vendredi de 11h30 à 13h30.
+        ☕ La cafétéria du CROUS est ouverte du lundi au vendredi de 8h30 à 15h.
 
   utter_ask_school_activities:
     - text: |
-        L’école propose plusieurs activités :
-        - associations étudiantes
-        - événements culturels
-        - clubs sportifs
-        - soirées étudiantes
-        Tu peux rejoindre un club via le BDE ou consulter l’affichage sur place.
+        L’école possède un terrain de sport ainsi qu'une bibliothèque. 📚 
+        L'école faisant partie de l'UVSQ, il est possible de profiter des différents ateliers et évènements s'y trouvant. 🏸
+        Pour plus d'informations : https://www.uvsq.fr/vie-de-campus
 
   utter_reglementation_examens:
     - text: |
-        Voici les règles des examens à l'ISTY :
-
+        Voici les règles des examens à l'ISTY 📑 : 
         - La moyenne minimale pour valider un module est de 10/20.
         - Une note inférieure à 7/20 est considérée comme éliminatoire.
         - Les rattrapages sont autorisés sous certaines conditions, et se dérouleront durant la période de septembre à octobre.
@@ -149,7 +160,6 @@ responses:
   utter_regles_interieures:
     - text: |
         Voici les principales règles de vie à respecter au sein de l'ISTY :
-
         1. Il est interdit de manger dans les salles de cours et dans les espaces communs.
         2. Les papiers et les déchets doivent être jetés dans les poubelles mises à disposition.
         3. Les téléphones portables doivent être éteints et rangés pendant les cours afin de ne pas perturber le déroulement.
@@ -159,30 +169,71 @@ responses:
 
   utter_aides_financieres:
     - text: |
-        Il est possible d'avoir une bourse venant du CROUS selon vos critères sociaux.
+        Il est possible d'avoir une bourse venant du CROUS selon vos critères sociaux. 💰
         Vous pouvez consulter toutes les informations sur les aides financières étudiantes en visitant le lien suivant : 
         [Aides étudiantes UVSQ](https://www.uvsq.fr/aides-etudiantes)
 
   utter_horaires_ecole:
     - text: >
-        Les cours ont lieu du lundi au vendredi, de 8h30 à 18h30, avec une pause déjeuner entre 11h30 et 14h.
+        Les cours ont lieu du lundi au vendredi, de 8h30 à 18h30, avec une pause déjeuner d'une heure généralement entre 11h30 et 14h.
 
   utter_frais_inscription:
     - text: |
-        Les frais d’inscription s’élèvent à 614 euros par an.
-        Des réductions peuvent être appliquées pour les boursiers ou en cas de redoublement.
+        Les frais d’inscription s’élèvent à 614 euros par an. 💰
+        Les boursiers en sont exonérés.
 
   utter_diplome:
     - text: |
         Le diplôme délivré par l’ISTY est un diplôme d’ingénieur reconnu par l'État et les entreprises, avec une excellente insertion professionnelle.
+        L'école ISTY est accréditée par la Cti.
 
   utter_specialites:
     - text: |
         L’ISTY propose des formations dans quatres grandes spécialités : 
-        - Informatique, 
-        - Mécatronique,
-        - Systèmes électroniques embarqués,
-        - Systèmes numériques pour l'industrie.
+        💻 Informatique, 
+        🤖 Mécatronique,
+        📡 Systèmes électroniques embarqués,
+        🏭 Systèmes numériques pour l'industrie.
+
+  utter_infirmerie:
+    - text: |
+        L'infirmerie est ouverte à l'ISTY les mardi, jeudi et vendredi de 9h à 17h. 🏥 
+        Tél :  01 39 25 37 11 📞
+        Le médecin scolaire reçoit sur rendez-vous le jeudi de 9h30 à 16h30 sur le campus de Vélizy (au sous-sol du Bâtiment Garros).
+        Portable d'urgence : 06 63 52 96 26 📞
+        Plus d'informations ici : https://www.isty.uvsq.fr/sante
+
+  utter_duree_diplome:
+    - text: |
+        Il est possible de rejoindre l'ISTY directement après le bac via Parcoursup.
+        Dans ce cas-là, la durée de scolarité sera de 5 ans (2 ans de classe préparatoire puis 3 ans de cycle ingénieur).
+        Il est aussi possible de rejoindre l'école au niveau Bac+2 en intégrant le Cycle ingénieur après un BUT, une Licence...
+        Dans ce cas-là, la durée de scolarité sera de 3 ans.
+
+  utter_contact_scolarite:
+    - text: |
+        Il est possible de contacter l'administration par téléphone ou par mail. 📞
+        Voici le lien regroupant les contacts de l'administration de chaque campus de l'ISTY : 
+        https://www.isty.uvsq.fr/contacts
+
+  utter_saluer_et_demander_ca_va:
+    - text: |
+        Salut ! Je vais très bien, merci 😊
+        Que souhaites-tu me demander ?
+
+  utter_demander_comment_ca_va:
+    - text: |
+        Je vais super bien, merci de demander ! 😊
+        Que souhaites-tu me demander ?
+
+  utter_demander_services_chatbot:
+    - text: |
+        Voici ce que je peux faire pour toi :
+        🧾 Te donner des infos sur les formations, diplômes, inscriptions, et plus encore.
+        📅 T’envoyer ton emploi du temps.
+        🏫 Te guider vers les contacts utiles de l’administration.
+        🎓 Règles d’examens, règlement intérieur, aides financières.
+        ❓ Répondre à toutes tes questions sur la vie universitaire.
 
 actions:
   - action_donner_horaires
