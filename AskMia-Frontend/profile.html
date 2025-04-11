@@ -2,7 +2,9 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil Étudiant</title>
+    <link rel="stylesheet" href="static/css/Style.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -51,13 +53,27 @@
       .btn {
         display: inline-block;
         margin-top: 10px;
-        margin-left: 20px;
         padding: 10px 20px;
         background-color: #6d1246;
         color: white;
         border: none;
         border-radius: 20px;
         cursor: pointer;
+        font-size: 14px;
+      }
+
+      .password-form {
+        display: none;
+        margin-top: 20px;
+      }
+
+      .password-form input {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
         font-size: 14px;
       }
 
@@ -89,12 +105,14 @@
         width: 100px;
         height: 100px;
       }
+
       .bottom-left {
         bottom: 0;
         left: 0;
         width: 150px;
         height: 150px;
       }
+
       .bottom-right {
         bottom: 0;
         right: 0;
@@ -104,6 +122,25 @@
     </style>
   </head>
   <body>
+    <!-- Bulles décoratives -->
+    <div class="circles">
+      <div class="circle blue top-right"></div>
+      <div
+        class="circle purple"
+        style="top: 40px; right: 40px; width: 100px; height: 100px"
+      ></div>
+      <div class="circle purple bottom-left"></div>
+      <div
+        class="circle blue"
+        style="bottom: 40px; left: 40px; width: 120px; height: 120px"
+      ></div>
+      <div class="circle blue bottom-right"></div>
+      <div
+        class="circle purple"
+        style="bottom: 40px; right: 40px; width: 80px; height: 80px"
+      ></div>
+    </div>
+
     <header>
       <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
     </header>
@@ -115,27 +152,37 @@
       <div class="info"><span>Date de naissance :</span></div>
       <div class="info"><span>Classe :</span></div>
       <div class="info"><span>Adresse-mail :</span></div>
-      <div class="info"><span>ID Etudiant :</span></div>
+      <div class="info"><span>ID Étudiant :</span></div>
       <div class="info">
         <span>Mot de passe :</span>
-        <button class="btn">Modifier le mot de passe</button>
+        <button class="btn" onclick="afficherFormulaire()">
+          Modifier le mot de passe
+        </button>
+
+        <form class="password-form" id="formulaire-mdp">
+          <label for="ancien-mdp">Ancien mot de passe :</label>
+          <input type="password" id="ancien-mdp" name="ancien-mdp" required />
+
+          <label for="nouveau-mdp">Nouveau mot de passe :</label>
+          <input type="password" id="nouveau-mdp" name="nouveau-mdp" required />
+
+          <label for="confirmation-mdp">Confirmer le mot de passe :</label>
+          <input
+            type="password"
+            id="confirmation-mdp"
+            name="confirmation-mdp"
+            required
+          />
+
+          <button type="submit" class="btn">Valider</button>
+        </form>
       </div>
     </div>
 
-    <!-- Decorative Circles -->
-    <div class="circles">
-      <div class="circle blue top-right"></div>
-      <div class="circle purple top-right" style="right: 40px; top: 40px"></div>
-      <div class="circle purple bottom-left"></div>
-      <div
-        class="circle blue bottom-left"
-        style="left: 40px; bottom: 40px"
-      ></div>
-      <div class="circle blue bottom-right"></div>
-      <div
-        class="circle purple bottom-right"
-        style="right: 40px; bottom: 40px"
-      ></div>
-    </div>
+    <script>
+      function afficherFormulaire() {
+        document.getElementById("formulaire-mdp").style.display = "block";
+      }
+    </script>
   </body>
 </html>

@@ -5,15 +5,17 @@ from pathlib import Path
 import datetime
 import models
 import hashlib
+import requests
 
 directoryBack = os.getcwd()
 directoryFront = str(Path(directoryBack).parents[0]) + os.sep + "AskMia-Frontend"
-app = Flask(__name__, 
-            template_folder=directoryFront, 
+app = Flask(__name__,
+            template_folder=directoryFront,
             static_folder=os.path.join(directoryFront, "static"))
 
-CORS(app)  # Pour permettre à JS (frontend) de communiquer avec Flask
+CORS(app)
 
+# Page d'accueil
 @app.route("/")
 def page_principale():
     return render_template("Index.html")
@@ -24,41 +26,44 @@ def page_connexion():
 
 @app.route("/debug/create")
 def debug_create_account():
-    models.create_new_etudiant(123, "Dupont", "Jean", datetime(2000, 1, 1), "password123", "Informatique")
+    models.create_new_etudiant(123, "Dupont", "Jean", datetime.datetime(2000, 1, 1), "password123", "Informatique")
+    return "Compte créé (debug)"
 
-# -------- ROUTES API -------- #
+# ----------- Login API ----------- #
 @app.route("/api/login/student", methods=["POST"])
 def login_student():
     data = request.get_json()
     student_id = int(data.get("student_id"))
     password = data.get("password")
 
-    # Hasher le mot de passe entré par l'utilisateur
     password_hash = hashlib.sha256(password.encode()).hexdigest()
-
     stored_password = models.get_mdp_from_etudiant(student_id)
-
-    print("Mot de passe stocké :", stored_password)
-    print("Mot de passe hashé saisi :", password_hash)
 
     if stored_password == password_hash:
         return jsonify({"success": True})
     else:
         return jsonify({"success": False})
 
-
-
 @app.route("/api/login/admin", methods=["POST"])
 def login_admin():
     data = request.get_json()
     admin_id = data.get("admin_id")
-
-    # Ici tu peux ajouter ta logique admin plus tard
-    if admin_id == "admin123": 
+    if admin_id == "admin123":
         return jsonify({"success": True})
     else:
         return jsonify({"success": False})
 
+# ----------- Chatbot Rasa API ----------- #
+RASA_URL = "http://localhost:5005/webhooks/rest/webhook"
+
+@app.route("/api/chat", methods=["POST"])
+def chat_with_rasa():
+    user_message = request.json.get("message")
+    response = requests.post(RASA_URL, json={"message": user_message})
+    rasa_response = response.json()
+    return jsonify(rasa_response)
+
+# Debug pages
 @app.route("/debug/etudiants")
 def debug_etudiants():
     etudiants = models.get_all_etudiants()
@@ -71,7 +76,7 @@ def debug_etudiants():
 @app.route("/debug/admins")
 def debug_admins():
     admins = models.get_all_admins()
-    html = "<h2>admins enregistrés :</h2><ul>"
+    html = "<h2>Admins enregistrés :</h2><ul>"
     for a in admins:
         html += f"<li>ID: {a.clef}</li>"
     html += "</ul>"
