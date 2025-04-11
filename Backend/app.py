@@ -20,7 +20,11 @@ def page_principale():
 
 @app.route("/connexion")
 def page_connexion():
-    return render_template("Create-account.html")
+    return render_template("Login.html")
+
+@app.route("/debug/create")
+def debug_create_account():
+    models.create_new_etudiant(123, "Dupont", "Jean", datetime(2000, 1, 1), "password123", "Informatique")
 
 # -------- ROUTES API -------- #
 @app.route("/api/login/student", methods=["POST"])
@@ -64,6 +68,14 @@ def debug_etudiants():
     html += "</ul>"
     return html
 
+@app.route("/debug/admins")
+def debug_admins():
+    admins = models.get_all_admins()
+    html = "<h2>admins enregistrés :</h2><ul>"
+    for a in admins:
+        html += f"<li>ID: {a.clef}</li>"
+    html += "</ul>"
+    return html
 
 if __name__ == "__main__":
     app.run(debug=True)

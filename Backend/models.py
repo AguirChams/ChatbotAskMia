@@ -13,8 +13,7 @@ table_etudiant = Table("Etudiant", metadata_obj,
                        Column("motDePasse", String(64), nullable=False),
                        Column("classe", String(100), nullable=True))
 
-table_admin = Table("Admin", metadata_obj, Column(
-    "clef", String(64), primary_key=True))
+table_admin = Table("Admin", metadata_obj, Column("clef", String(64), primary_key=True))
 
 
 # à n'appeler qu'une seule fois, si mia.db n'existe pas !
@@ -83,6 +82,14 @@ def delete_etudiant(numEtudiant):
 
 def get_all_etudiants():
     stmt = select(table_etudiant)
+    with engine.connect() as conn:
+        result = conn.execute(stmt)
+        rows = result.fetchall()
+    conn.close()
+    return rows
+
+def get_all_admins():
+    stmt = select(table_admin)
     with engine.connect() as conn:
         result = conn.execute(stmt)
         rows = result.fetchall()
