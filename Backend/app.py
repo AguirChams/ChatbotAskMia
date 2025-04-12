@@ -24,10 +24,36 @@ def page_principale():
 def page_connexion():
     return render_template("Login.html")
 
-@app.route("/debug/create")
-def debug_create_account():
-    models.create_new_etudiant(123, "Dupont", "Jean", datetime.datetime(2000, 1, 1), "password123", "Informatique")
-    return "Compte créé (debug)"
+@app.route("/creerCompte")
+def creer_compte():
+    return render_template("Create-account.html")
+
+# ----------- Create account API ----------- #
+@app.route("/api/create_account", methods=["POST"])
+def api_create_account():
+    data = request.get_json()
+    
+    nom = data.get("surname")
+    prenom = data.get("name")
+    birthdate = data.get("birthdate")
+    classe = data.get("class")
+    password = data.get("password")
+
+    
+    new_id = models.get_next_etudiant_id()  
+    
+    
+    
+    birthdate_dt = datetime.datetime.strptime(birthdate, "%Y-%m-%d")
+    
+    success = models.create_new_etudiant(new_id, nom, prenom, birthdate_dt, password, classe)
+    
+    if success:
+        return "compte créé"
+        return jsonify({"success": True, "message": "Compte créé avec succès."})
+    else:
+        return jsonify({"success": False, "message": "Échec de la création du compte."})
+
 
 # ----------- Login API ----------- #
 @app.route("/api/login/student", methods=["POST"])
@@ -81,6 +107,16 @@ def debug_admins():
         html += f"<li>ID: {a.clef}</li>"
     html += "</ul>"
     return html
+
+@app.route("/debug/create")
+def debug_create_account_debug():
+    models.create_new_etudiant(123, "Dupont", "Jean", datetime.datetime(2000, 1, 1), "password123", "Informatique")
+    return "Compte créé (debug)"
+
+@app.route("/debug/createAdmin")
+def debug_create_admin_debug():
+    models.create_new_clef_admin(1)
+    return "Admin créé (debug)"
 
 if __name__ == "__main__":
     app.run(debug=True)

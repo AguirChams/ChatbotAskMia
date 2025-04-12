@@ -5,7 +5,7 @@ function handleLogin(formId, redirectUrl) {
     if (formId === "student-login") {
       const studentId = document.getElementById("Student_id").value;
       const password = document.getElementById("password").value;
-
+ 
       fetch("http://localhost:5000/api/login/student", {
         method: "POST",
         headers: {
@@ -56,8 +56,8 @@ function handleLogin(formId, redirectUrl) {
   });
 }
 
-handleLogin("student-login", "index.html");
-handleLogin("admin-login", "create-account.html");
+handleLogin("student-login", "/");
+handleLogin("admin-login", "/creerCompte");
 
 
 /*créér compte : models.create_new_etudiant(22101371, "Lampin", "Vivien", datetime.datetime(2003, 10, 4), "test123", "IATIC3")*/

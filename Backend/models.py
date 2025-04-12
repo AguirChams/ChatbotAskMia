@@ -43,12 +43,22 @@ def get_clefs_from_admin():
 
 
 def create_new_etudiant(numEtudiant, nom, prenom, dateDeNaissance, motDePasse, classe):
-    mdpHashe = hashlib.sha256(motDePasse.encode()).hexdigest()
-    stmt = insert(table_etudiant).values(numeroEtudiant=numEtudiant, nom=nom,
-                                         prenom=prenom, dateDeNaissance=dateDeNaissance, motDePasse=mdpHashe, classe=classe)
-    with engine.begin() as conn:
-        conn.execute(stmt)
+    try:
+        mdpHashe = hashlib.sha256(motDePasse.encode()).hexdigest()
+        stmt = insert(table_etudiant).values(
+            numeroEtudiant=numEtudiant
+            ,nom=nom
+            ,prenom=prenom
+            ,dateDeNaissance=dateDeNaissance
+            ,motDePasse=mdpHashe
+            ,classe=classe
+            )
 
+        with engine.begin() as conn:
+            conn.execute(stmt)
+        return True
+    except Exception as e:    
+        return False
     conn.close()
 
 
@@ -95,3 +105,15 @@ def get_all_admins():
         rows = result.fetchall()
     conn.close()
     return rows
+
+# fonction qui trouve l'id du dernier étudiant et l'icremente par 1
+def get_next_etudiant_id():
+    # Récupérer l'ID du dernier étudiant enregistré
+    last_student = db.session.query(Student).order_by(Student.id.desc()).first()
+
+    # Si aucun étudiant n'est trouvé, on retourne 1 (premier étudiant)
+    if not last_student:
+        return 1
+
+    # Sinon, on incrémente l'ID du dernier étudiant de 1
+    return last_student.id + 1
