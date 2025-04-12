@@ -7,6 +7,7 @@ intents:
   - deny
   - mood_great
   - mood_unhappy
+  - mood_angry
   - bot_challenge
   - thanks
   - ask_course_schedule
@@ -37,12 +38,21 @@ intents:
   - saluer_et_demander_ca_va
   - demander_comment_ca_va
   - demander_services_chatbot
+  - demander_acces_ecole
+  - demander_localisation_ecole
+  - demander_appartenance_isty
+  - demander_createurs
+  - vacances_scolaires
+  - financement_ecole
+  - infos_directeur
+  - nombre_eleves
 
 entities:
   - matiere
   - test
   - year
   - specialite
+  - activities
 
 responses:
   utter_greet:
@@ -57,6 +67,12 @@ responses:
   utter_happy:
     - text: "Super ! 😄"
 
+  utter_angry:
+    - text: |
+        Je suis vraiment désolé si mes réponses t'ont frustré.
+        J'essaie de m'améliorer, mais parfois je fais des erreurs. 😓
+        Peux-tu reformuler ta question pour que je puisse mieux t'aider ? 😊
+
   utter_goodbye:
     - text: "Bye ! À bientôt 👋"
 
@@ -69,9 +85,12 @@ responses:
   utter_ask_course_schedule:
     - text: |
         Je t'envoie les liens des emplois du temps selon la promotion 📅:
-        - IATIC3 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC3
-        - IATIC4 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC4
-        - IATIC5 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC5
+
+        🔹 IATIC3 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC3
+
+        🔹 IATIC4 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC4
+
+        🔹 IATIC5 : https://edt.iut-velizy.uvsq.fr/cal?vt=agendaWeek&dt=2024-08-30&et=group&fid0=IATIC5
 
   utter_ask_exam_dates:
     - text: "Les examens sont présents sur l'emploi du temps. 📘"
@@ -90,12 +109,16 @@ responses:
   utter_ask_internship_info:
     - text: |
         Pour les stages, la durée doit être de : 
-        - 1 à 2 mois en entreprise pour les IATIC3
-        - 3 à 4 mois en entreprise pour les IATIC4
-        - 6 mois en entreprise pour les IATIC5
+
+        🔹 1 à 2 mois en entreprise pour les IATIC3
+
+        🔹 3 à 4 mois en entreprise pour les IATIC4
+
+        🔹 6 mois en entreprise pour les IATIC5
+
         Pour plus d'informations, tu peux :
-        - Contacter le service des stages : gestion.stage@isty.uvsq.fr
-        - Regarder sur la page web dédiée : http://stages.isty.uvsq.fr/
+        🔹 Contacter le service des stages : gestion.stage@isty.uvsq.fr
+        🔹 Regarder sur la page web dédiée : http://stages.isty.uvsq.fr/
 
   utter_ask_library_hours:
     - text: "La bibliothèque universitaire de Vélizy est ouverte du lundi au vendredi de 8h30 à 17h30. 📚"
@@ -117,19 +140,28 @@ responses:
     - text: |
         Il est possible de faire un semestre à l'étranger en dernière année 🌍, à condition d'avoir le TOEIC.  
         L'école propose plusieurs partenariats avec des universités étrangères, notamment : 
-        - Angleterre : Coventry University - Coventry   (Mécatronique)
-        - Corée du Sud :  Ajou University - Suwon  (Informatique, Mécatronique)
-        - Japon : Hosei University - Tokyo  (Informatique, Mécatronique)      
+
+        🔹 Angleterre : Coventry University - Coventry   (Mécatronique)
+
+        🔹 Corée du Sud :  Ajou University - Suwon  (Informatique, Mécatronique)
+
+        🔹 Japon : Hosei University - Tokyo  (Informatique, Mécatronique)   
+
         Plus d'informations ici : https://www.isty.uvsq.fr/partir-a-letranger
 
   utter_ask_double_degree:
     - text: |
         Il est possible de suivre un Master 🎓 de l'Université Paris Saclay en parallèle de la dernière année du Cycle ingénieur pour les élèves en filière Informatique, sous certaines conditions. 
         Les Masters proposés : 
-        - Master CHPS (UVSQ)
-        - Master SeCReTS (Paris-Saclay)
-        - Master IRS (Paris-Saclay)
-        - un M2 de l’université Paris-Saclay éligible au diplôme de la spécialité. 
+
+        🔹 Master CHPS (UVSQ)
+
+        🔹 Master SeCReTS (Paris-Saclay)
+
+        🔹 Master IRS (Paris-Saclay)
+
+        🔹 un M2 de l’université Paris-Saclay éligible au diplôme de la spécialité. 
+
         Voici la page web dédiée : https://www.isty.uvsq.fr/enseignements
 
   utter_ask_student_housing:
@@ -152,19 +184,25 @@ responses:
   utter_reglementation_examens:
     - text: |
         Voici les règles des examens à l'ISTY 📑 : 
-        - La moyenne minimale pour valider un module est de 10/20.
-        - Une note inférieure à 7/20 est considérée comme éliminatoire.
-        - Les rattrapages sont autorisés sous certaines conditions, et se dérouleront durant la période de septembre à octobre.
+        🔹 La moyenne minimale pour valider un module est de 10/20.
+        🔹 Une note inférieure à 7/20 est considérée comme éliminatoire.
+        🔹 Les rattrapages sont autorisés sous certaines conditions, et se dérouleront durant la période de septembre à octobre.
         Pour plus de détails sur les modalités, consultez votre service scolarité.
 
   utter_regles_interieures:
     - text: |
         Voici les principales règles de vie à respecter au sein de l'ISTY :
+
         1. Il est interdit de manger dans les salles de cours et dans les espaces communs.
+
         2. Les papiers et les déchets doivent être jetés dans les poubelles mises à disposition.
+
         3. Les téléphones portables doivent être éteints et rangés pendant les cours afin de ne pas perturber le déroulement.
+
         4. En quittant les salles, les chaises et les tables doivent être correctement rangées, et les lumières éteintes.
+
         5. Le respect des autres est essentiel pour maintenir un environnement de travail agréable et productif.
+
         Ces règles sont en place pour garantir une bonne ambiance et un cadre de travail serein pour tous.
 
   utter_aides_financieres:
@@ -190,17 +228,23 @@ responses:
   utter_specialites:
     - text: |
         L’ISTY propose des formations dans quatres grandes spécialités : 
-        💻 Informatique, 
-        🤖 Mécatronique,
-        📡 Systèmes électroniques embarqués,
-        🏭 Systèmes numériques pour l'industrie.
+
+        💻 Informatique
+
+        🤖 Mécatronique
+
+        📡 Systèmes électroniques embarqués
+
+        🏭 Systèmes numériques pour l'industrie
 
   utter_infirmerie:
     - text: |
         L'infirmerie est ouverte à l'ISTY les mardi, jeudi et vendredi de 9h à 17h. 🏥 
-        Tél :  01 39 25 37 11 📞
+        📞 Tél. :  01 39 25 37 11
+
         Le médecin scolaire reçoit sur rendez-vous le jeudi de 9h30 à 16h30 sur le campus de Vélizy (au sous-sol du Bâtiment Garros).
-        Portable d'urgence : 06 63 52 96 26 📞
+        📞 Portable d'urgence : 06 63 52 96 26 
+
         Plus d'informations ici : https://www.isty.uvsq.fr/sante
 
   utter_duree_diplome:
@@ -212,9 +256,22 @@ responses:
 
   utter_contact_scolarite:
     - text: |
-        Il est possible de contacter l'administration par téléphone ou par mail. 📞
-        Voici le lien regroupant les contacts de l'administration de chaque campus de l'ISTY : 
-        https://www.isty.uvsq.fr/contacts
+        Voici les contacts des différents sites de formation de l'ISTY :
+
+        🔹 Filière Informatique :
+        📞 Tél. : 01 39 25 38 54  
+        ✉️ Email : administration-velizy@isty.uvsq.fr
+
+        🔹 Cycle Préparatoire Intégré :  
+        📞 Tél. : 01 39 25 33 07  
+        ✉️ Email : cpi@isty.uvsq.fr
+
+        🔹 Filières Ingénieurs Mécatronique, Systèmes Électroniques Embarqués et Systèmes Numériques pour l'Industrie :
+        📞 Tél. : 01 39 25 33 09  
+        ✉️ Email : administration-mantes@isty.uvsq.fr
+
+        🔹 Masters CHPS et IRS : 
+        📞 Tél. : 01 39 25 52 11
 
   utter_saluer_et_demander_ca_va:
     - text: |
@@ -229,11 +286,80 @@ responses:
   utter_demander_services_chatbot:
     - text: |
         Voici ce que je peux faire pour toi :
+
         🧾 Te donner des infos sur les formations, diplômes, inscriptions, et plus encore.
+
         📅 T’envoyer ton emploi du temps.
+
         🏫 Te guider vers les contacts utiles de l’administration.
+
         🎓 Règles d’examens, règlement intérieur, aides financières.
+
         ❓ Répondre à toutes tes questions sur la vie universitaire.
+
+  utter_localisation_ecole:
+    - text: |
+        Voici la localisation des différents campus de l'ISTY :
+
+        🔹 Filière Informatique :
+        10-12 avenue de l'Europe  
+        78140 Vélizy Villacoublay
+
+        🔹 Cycle Préparatoire Intégré :  
+        28 boulevard Roger Salengro  
+        78711 Mantes-la-Ville  
+
+        🔹 Filières Ingénieurs Mécatronique, Systèmes Électroniques Embarqués et Systèmes Numériques pour l'Industrie :
+        28 boulevard Roger Salengro  
+        78711 Mantes-la-Ville
+
+        🔹 Masters CHPS et IRS :  
+        Bâtiment François Rabelais  
+        9 Boulevard d'Alembert  
+        78280 Guyancourt
+
+  utter_appartenance_isty:
+    - text: |
+        L'ISTY (Institut des Sciences et Techniques des Yvelines) est une école publique d'ingénieur 🎓.  
+        Elle fait partie de l'Université de Versailles Saint-Quentin-en-Yvelines (UVSQ) 🏫,  
+        qui elle-même est membre de l'Université Paris-Saclay 🌍, un des plus grands pôles universitaires en France et en Europe 🇫🇷🇪🇺.
+
+  utter_createurs:
+    - text: |
+        Je fais partie du projet développé par l'équipe Nova, un groupe d'étudiants en IATIC3 à l'ISTY 🎓.  
+        Ces étudiants sont passionnés par l'intelligence artificielle 🤖 et les nouvelles technologies 🚀.  
+        L'équipe Nova travaille sur plusieurs projets innovants pour améliorer l'expérience des utilisateurs grâce à l'IA 🤝.
+
+  utter_vacances_scolaires_zone_c:
+    - text: |
+        Voici les dates des vacances scolaires pour la zone C pour l'année scolaire 2024/2025🎒📅 :
+
+        🔹 Vacances de la Toussaint 🍂 : du 21 octobre au 6 novembre
+
+        🔹 Vacances de Noël 🎄 : du 23 décembre au 7 janvier
+
+        🔹 Vacances d'hiver ❄️ : du 17 février au 5 mars
+
+        🔹 Vacances de printemps 🌸 : du 14 avril au 1er mai
+
+        🔹 Vacances d'été ☀️ : du 6 juillet au 2 septembre
+
+  utter_infos_directeur:
+    - text: |
+        Le directeur de l'école est Mohamed KRIK 🧑‍🏫.
+        Si tu souhaites le rencontrer ou obtenir plus d'informations, tu peux contacter l'école directement au 01 39 25 38 50 📞 ou via administration@isty.uvsq.fr
+
+  utter_nombre_eleves:
+    - text: |
+        Voici le nombre total d'élèves dans notre école pour l'année 2024/2025 🎓👩‍🎓👨‍🎓 :
+
+        🔹 En prépa intégrée : 42 élèves 🎒📚
+
+        🔹 En cycle ingénieur : 315 élèves 💻🔧
+
+        🔹 En master : 212 étudiants 🧑‍🎓💼
+
+        🔹 Au total, l'école accueille environ 569 élèves cette année ! 🏫✨
 
 actions:
   - action_donner_horaires

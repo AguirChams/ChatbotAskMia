@@ -31,6 +31,11 @@ rules:
       - intent: thanks
       - action: utter_thanks
 
+  - rule: "Réponse à un utilisateur frustré"
+    steps:
+      - intent: mood_angry
+      - action: utter_angry
+
   - rule: Ask for grades
     steps:
       - intent: ask_grades
@@ -155,3 +160,38 @@ rules:
     steps:
       - intent: demander_services_chatbot
       - action: utter_demander_services_chatbot
+
+  #- rule: Indiquer localisation
+  #  steps:
+  #    - intent: demander_acces_ecole
+  #    - action: utter_acces_ecole
+
+  - rule: Indiquer localisation école
+    steps:
+      - intent: demander_localisation_ecole
+      - action: utter_localisation_ecole
+
+  - rule: Répondre à la demande d'appartenance de l'ISTY
+    steps:
+      - intent: demander_appartenance_isty
+      - action: utter_appartenance_isty
+
+  - rule: Répondre à la demande des créateurs du chatbot
+    steps:
+      - intent: demander_createurs
+      - action: utter_createurs
+
+  - rule: Réponse sur les vacances scolaires Zone C
+    steps:
+      - intent: vacances_scolaires
+      - action: utter_vacances_scolaires_zone_c
+
+  - rule: Répondre aux infos sur le directeur
+    steps:
+      - intent: infos_directeur
+      - action: utter_infos_directeur
+
+  - rule: "Réponse sur le nombre d'élèves"
+    steps:
+      - intent: nombre_eleves
+      - action: utter_nombre_eleves

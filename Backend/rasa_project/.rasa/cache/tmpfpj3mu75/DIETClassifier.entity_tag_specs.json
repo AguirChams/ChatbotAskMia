@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-activities",
+      "2": "I-activities",
+      "3": "L-activities",
+      "4": "U-activities",
+      "5": "B-matiere",
+      "6": "I-matiere",
+      "7": "L-matiere",
+      "8": "U-matiere",
+      "9": "B-specialite",
+      "10": "I-specialite",
+      "11": "L-specialite",
+      "12": "U-specialite",
+      "13": "B-test",
+      "14": "I-test",
+      "15": "L-test",
+      "16": "U-test",
+      "17": "B-year",
+      "18": "I-year",
+      "19": "L-year",
+      "20": "U-year",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-activities": 1,
+      "I-activities": 2,
+      "L-activities": 3,
+      "U-activities": 4,
+      "B-matiere": 5,
+      "I-matiere": 6,
+      "L-matiere": 7,
+      "U-matiere": 8,
+      "B-specialite": 9,
+      "I-specialite": 10,
+      "L-specialite": 11,
+      "U-specialite": 12,
+      "B-test": 13,
+      "I-test": 14,
+      "L-test": 15,
+      "U-test": 16,
+      "B-year": 17,
+      "I-year": 18,
+      "L-year": 19,
+      "U-year": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

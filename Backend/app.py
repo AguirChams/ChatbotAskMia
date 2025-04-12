@@ -120,3 +120,7 @@ def debug_create_admin_debug():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+@app.route("/profil")
+def page_profil():
+    return render_template("profile.html")

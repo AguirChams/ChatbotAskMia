@@ -112,6 +112,29 @@ nlu:
       - prête pour l'examen
       - tout va bien
 
+  - intent: mood_angry
+    examples: |
+      - Tu es vraiment bête !
+      - C'est nul ce que tu dis !
+      - Tu ne comprends rien !
+      - T'es complètement idiot !
+      - C'est quoi ces réponses pourries ?
+      - Sérieusement, t'es trop con !
+      - T'es qu'une machine stupide !
+      - T'es un robot inutile !
+      - Mais t'es complètement débile !
+      - C'est pas possible, tu comprends rien !
+      - Tu fais vraiment n'importe quoi !
+      - T'es un chatbot inutile !
+      - T'es vraiment trop nul !
+      - Ça ne marche jamais avec toi !
+      - T'es censé être intelligent, mais tu es vraiment mauvais !
+      - Arrête de répondre n'importe quoi !
+      - T'as aucune idée de ce que je dis !
+      - C'est insupportable de discuter avec toi !
+      - Tu ne sais même pas répondre correctement !
+      - Mais pourquoi t'es aussi nul ?
+
   - intent: mood_unhappy
     examples: |
       - je suis fatigué
@@ -442,6 +465,18 @@ nlu:
       - Peut-on faire du théâtre ou de la musique à l’école ?
       - Est-ce qu’il y a des sorties ou voyages étudiants ?
       - C’est quoi les événements organisés cette année ?
+      - Je peux faire du [football](activities) à l’école ?
+      - Est-ce qu'on propose du [badminton](activities) ?
+      - Est-ce qu’on peut participer à des [jeux de société](activities) ?
+      - J’aimerais rejoindre le club de [robotique](activities)
+      - Il existe un club de [danse](activities) ?
+      - Est-ce qu’il y a une activité de [musique](activities) ?
+      - Peut-on faire du [yoga](activities) à l’école ?
+      - Est-ce que l’école propose du [tennis de table](activities) ?
+      - Est-ce qu’il y a un club de [lecture](activities) ?
+      - Je veux faire partie du club de [photographie](activities)
+      - Il y a un tournoi de [basketball](activities) cette année ?
+      - On peut faire du [volleyball](activities) en sport ?
 
   - lookup: matiere
     examples: |
@@ -503,6 +538,82 @@ nlu:
       - 5e année
       - cinquième année
       - 5ème année
+
+  - lookup: activities
+    examples: |
+      - sport
+      - théâtre
+      - musique
+      - danse
+      - dessin
+      - peinture
+      - photographie
+      - cinéma
+      - robotique
+      - club de débat
+      - club de lecture
+      - jeux de société
+      - jeux vidéo
+      - e-sport
+      - chorale
+      - orchestre
+      - bénévolat
+      - club environnement
+      - coding club
+      - hackathon
+      - club d'entrepreneuriat
+      - club international
+      - sorties culturelles
+      - voyages étudiants
+      - week-end d'intégration
+      - gala
+      - soirées étudiantes
+      - tournois sportifs
+      - compétitions inter-écoles
+      - radio étudiante
+      - journal de l'école
+      - club photo
+      - club cinéma
+      - yoga
+      - méditation
+      - théâtre d'improvisation
+      - activités solidaires
+      - club humanitaire
+      - club scientifique
+      - club d’astronomie
+      - expositions artistiques
+      - escape game
+      - jeux de rôles
+      - quiz culture générale
+      - concours d’éloquence
+      - football
+      - basketball
+      - volleyball
+      - handball
+      - rugby
+      - tennis
+      - tennis de table
+      - badminton
+      - natation
+      - athlétisme
+      - course à pied
+      - cross
+      - escalade
+      - arts martiaux
+      - judo
+      - karaté
+      - boxe
+      - fitness
+      - musculation
+      - randonnée
+      - cyclisme
+      - danse sportive
+      - zumba
+      - cheerleading
+      - aviron
+      - escrime
+      - golf
+      - ski
 
   - intent: demander_regles_examens
     examples: |
@@ -599,3 +710,185 @@ nlu:
       - J’ai besoin du contact du service administratif
       - L’administration a un numéro ou un mail ?
       - Comment parler avec quelqu’un de l’administration ?
+      - Je souhaite contacter la scolarité
+
+  - intent: demander_localisation_ecole
+    examples: |
+      - Où se trouve l'école ?
+      - C’est où l’ISTY ?
+      - Quelle est l’adresse de l’école ?
+      - Où est située l’école ?
+      - L’école se trouve dans quelle ville ?
+      - C’est à quel endroit l’école ?
+      - Où est localisée l’ISTY ?
+      - Où est votre campus ?
+      - L’école est dans quel coin ?
+      - L’école est placée où ?
+      - L’ISTY est située où ?
+      - Je dois aller où pour l’école ?
+      - Où est l’entrée principale de l’école ?
+      - Est-ce que l’école est à Versailles ?
+      - L’école est bien sur le campus de Versailles ?
+      - Peux-tu me donner l’adresse exacte de l’ISTY ?
+      - L’établissement est situé où exactement ?
+
+  - intent: demander_acces_ecole
+    examples: |
+      - Comment aller à l’école ?
+      - Peux-tu me donner l’itinéraire pour venir ?
+      - Quel chemin je dois prendre pour aller à l’ISTY ?
+      - Comment accéder à l’école ?
+      - Je pars de Paris, comment je viens ?
+      - C’est quoi le meilleur itinéraire pour venir ?
+      - Quel est le chemin le plus rapide pour rejoindre l’ISTY ?
+      - Comment je fais pour arriver à l’école ?
+      - Comment accéder à l’école depuis la gare ?
+      - L’école est accessible comment ?
+      - Je veux me rendre à l’école, c’est quoi le trajet ?
+      - Tu peux m’indiquer la route jusqu’à l’ISTY ?
+      - C’est où exactement l’ISTY ?
+      - Quels transports pour aller à l’école ?
+      - Je peux y aller en bus ?
+      - Y a-t-il un train pour aller à l’ISTY ?
+      - Comment venir en transport en commun ?
+      - Quels sont les moyens de transport disponibles ?
+      - Est-ce que je peux venir en métro ?
+      - Quel est le bus qui va à l’école ?
+      - Y a une navette pour l’école ?
+      - L’école est desservie par le RER ?
+      - Il y a un arrêt de tram ou de bus proche de l’école ?
+      - Est-ce qu’on peut venir en voiture ?
+      - Quel transport pour venir depuis Versailles ?
+      - Est-ce que je peux venir à vélo ?
+
+  - intent: demander_appartenance_isty
+    examples: |
+      - L’ISTY dépend de quelle université ?
+      - L’ISTY fait partie de quel groupe ?
+      - L’école ISTY appartient à quelle université ?
+      - C’est quoi l’organisme de rattachement de l’ISTY ?
+      - L’ISTY est rattachée à qui ?
+      - L’ISTY est liée à Paris-Saclay ?
+      - Elle dépend de l’UVSQ ?
+      - C’est une école de l’UVSQ ?
+      - L’ISTY fait-elle partie de l’Université Paris-Saclay ?
+      - L’ISTY, c’est une école indépendante ?
+      - Elle est publique ou privée l’ISTY ?
+      - Est-ce que l’ISTY est dans le groupe Paris-Saclay ?
+      - C’est quoi la structure dont dépend l’ISTY ?
+      - À qui appartient l’ISTY ?
+      - C’est une école de l’Université de Versailles ?
+      - Est-ce une école membre de Paris-Saclay ?
+
+  - intent: demander_createurs
+    examples: |
+      - Qui a créé ce chatbot ?
+      - Qui sont les créateurs de ce projet ?
+      - Par qui as-tu été développé ?
+      - D’où viens-tu ?
+      - Qui est derrière toi ?
+      - Qui t’a conçu ?
+      - Par quel groupe d'étudiants as-tu été créé ?
+      - Qui a développé cette IA ?
+      - Qui sont les responsables de ton développement ?
+      - Par qui a été fait ce projet ?
+
+  - intent: vacances_scolaires
+    examples: |
+      - Quand commencent les vacances scolaires ?
+      - Quelles sont les dates des prochaines vacances ?
+      - C'est quand les vacances d'été ?
+      - Est-ce que les vacances scolaires sont bientôt ?
+      - Combien de temps durent les vacances scolaires ?
+      - Quand finissent les vacances ?
+      - Tu sais quand sont les vacances d'hiver ?
+      - Les vacances scolaires commencent quand cette année ?
+      - Est-ce que je peux planifier mes vacances scolaires ?
+      - À quelle date commencent les vacances de Noël ?
+      - Quand sont les vacances de printemps cette année ?
+      - Quand commence la rentrée après les vacances ?
+      - Quelles sont les dates des vacances d'automne ?
+      - Combien de semaines de vacances en juillet ?
+      - Quand est-ce que je peux partir en vacances scolaires ?
+      - Est-ce que les vacances de Pâques commencent bientôt ?
+      - Tu sais quand sont les vacances de la Toussaint ?
+      - Quand ont lieu les vacances d'hiver cette année ?
+      - Les vacances de Noël sont quand ?
+      - Est-ce que les vacances sont les mêmes chaque année ?
+
+  - intent: financement_ecole
+    examples: |
+      - Qui finance l'école ?
+      - Qui paie pour l'école ?
+      - L'école est-elle financée par l'État ?
+      - D'où viennent les financements pour les écoles ?
+      - L'école est-elle gratuite, qui paye ?
+      - Qui finance les écoles publiques ?
+      - L'État finance-t-il l'école ?
+      - Comment sont financées les écoles en France ?
+      - Qui prend en charge le budget des écoles ?
+      - Est-ce que les parents financent l'école ?
+      - Qui gère les financements des écoles ?
+      - Comment sont financées les écoles privées ?
+      - Les collectivités locales financent-elles l'école ?
+      - L'école est-elle financée par le gouvernement ?
+      - Qui donne de l'argent aux écoles ?
+      - Qui paye les salaires des enseignants ?
+      - L'école est-elle entièrement financée par l'État ?
+      - Les impôts financent-ils l'école ?
+      - D'où viennent les ressources des écoles publiques ?
+      - Qui s'occupe des finances des écoles ?
+
+  - intent: infos_directeur
+    examples: |
+      - Qui est le directeur de l'école ?
+      - C'est qui le directeur de cette école ?
+      - Quel est le nom du directeur ?
+      - Qui dirige l'école ?
+      - Où je peux trouver le directeur de l'école ?
+      - Quel est le rôle du directeur ?
+      - Le directeur est-il disponible pour discuter ?
+      - Comment contacter le directeur ?
+      - Le directeur a-t-il des horaires de réception ?
+      - Qui est responsable de l'école ?
+      - Quelle est la fonction du directeur ?
+      - Comment puis-je rencontrer le directeur ?
+      - Le directeur est-il présent aujourd'hui ?
+      - Comment obtenir un rendez-vous avec le directeur ?
+      - Est-ce que le directeur est à l'école cette semaine ?
+      - Où puis-je rencontrer le directeur ?
+      - Quel est le numéro de téléphone du directeur ?
+      - Le directeur répond-il aux parents ?
+      - Est-ce que je peux parler au directeur ?
+      - Le directeur peut-il me recevoir ?
+
+  - intent: nombre_eleves
+    examples: |
+      - Combien d'élèves il y a en prépa intégrée ?
+      - Quel est le nombre d'élèves en cycle ingénieur ?
+      - Combien d'étudiants sont inscrits en master ?
+      - Combien d'élèves dans la classe préparatoire ?
+      - Combien d'élèves suivent le programme de cycle ingénieur ?
+      - Quel est le nombre d'étudiants en master dans cette école ?
+      - Il y a combien d'élèves en prépa intégrée ?
+      - Quel est le nombre d'élèves dans le programme ingénieur ?
+      - Combien d'élèves sont inscrits en cycle ingénieur ?
+      - Combien d'étudiants dans la section master ?
+      - Quel est le nombre d'étudiants inscrits en prépa ?
+      - Combien d'élèves dans le programme de master ?
+      - Est-ce qu'il y a beaucoup d'élèves en prépa ?
+      - Combien d'étudiants en prépa intégrée ?
+      - Combien d'élèves dans le cursus ingénieur ?
+      - Quelle est la taille des classes en cycle ingénieur ?
+      - Quel est le nombre d'étudiants en master dans cette filière ?
+      - Combien d'étudiants sont en première année de prépa ?
+      - Combien d'élèves suivent le master ?
+      - Combien d'élèves y a-t-il dans toute l'école ?
+      - Quel est le nombre total d'élèves dans l'école ?
+      - Combien d'étudiants il y a dans toute l'école ?
+      - Quel est l'effectif total des élèves de l'école ?
+      - Combien d'élèves sont inscrits dans cette école ?
+      - Combien d'étudiants y a-t-il à l'école cette année ?
+      - Combien d'élèves l'école a-t-elle au total ?
+      - Quelle est la population étudiante totale de l'école ?
+      - Combien d'élèves l'école accueille cette année ?

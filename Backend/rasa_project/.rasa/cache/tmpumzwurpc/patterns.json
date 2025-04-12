@@ -1,0 +1,22 @@
+[
+  {
+    "name": "matiere",
+    "pattern": "(\\bmaths\\b|\\bmathématiques\\b|\\bphysique\\b|\\banglais\\b|\\bespagnol\\b|\\bchinois\\b|\\ballemand\\b|\\bgestion\\b|\\bcommunication\\b|\\balgorithmique\\b|\\bstructure\\ des\\ ordinateurs\\b|\\bbase\\ de\\ données\\b|\\bpoo\\b|\\bprogrammation\\ orientée\\ objet\\b)"
+  },
+  {
+    "name": "test",
+    "pattern": "(\\bexam\\b|\\bexamen\\b|\\bds\\b|\\bcc\\b|\\bcontrôle\\b|\\bévaluation\\b|\\bcontrole\\b|\\bevaluation\\b|\\béval\\b|\\beval\\b|\\binterro\\b|\\binterrogation\\b|\\btest\\b|\\bqcm\\b|\\bsoutenance\\b|\\boral\\b)"
+  },
+  {
+    "name": "specialite",
+    "pattern": "(\\bmécatronique\\b|\\binformatique\\b|\\bsystèmes\\ éléctroniques\\ embarqués\\b|\\bsystèmes\\ numériques\\ pour\\ l'industrie\\b)"
+  },
+  {
+    "name": "year",
+    "pattern": "(\\bIATIC3\\b|\\bIATIC\\ 3\\b|\\b3e\\ année\\b|\\btroisième\\ année\\b|\\b3ème\\ année\\b|\\bIATIC4\\b|\\bIATIC\\ 4\\b|\\b4e\\ année\\b|\\bquatrième\\ année\\b|\\b4ème\\ année\\b|\\bIATIC5\\b|\\bIATIC\\ 5\\b|\\b5e\\ année\\b|\\bcinquième\\ année\\b|\\b5ème\\ année\\b)"
+  },
+  {
+    "name": "activities",
+    "pattern": "(\\bsport\\b|\\bthéâtre\\b|\\bmusique\\b|\\bdanse\\b|\\bdessin\\b|\\bpeinture\\b|\\bphotographie\\b|\\bcinéma\\b|\\brobotique\\b|\\bclub\\ de\\ débat\\b|\\bclub\\ de\\ lecture\\b|\\bjeux\\ de\\ société\\b|\\bjeux\\ vidéo\\b|\\be\\-sport\\b|\\bchorale\\b|\\borchestre\\b|\\bbénévolat\\b|\\bclub\\ environnement\\b|\\bcoding\\ club\\b|\\bhackathon\\b|\\bclub\\ d'entrepreneuriat\\b|\\bclub\\ international\\b|\\bsorties\\ culturelles\\b|\\bvoyages\\ étudiants\\b|\\bweek\\-end\\ d'intégration\\b|\\bgala\\b|\\bsoirées\\ étudiantes\\b|\\btournois\\ sportifs\\b|\\bcompétitions\\ inter\\-écoles\\b|\\bradio\\ étudiante\\b|\\bjournal\\ de\\ l'école\\b|\\bclub\\ photo\\b|\\bclub\\ cinéma\\b|\\byoga\\b|\\bméditation\\b|\\bthéâtre\\ d'improvisation\\b|\\bactivités\\ solidaires\\b|\\bclub\\ humanitaire\\b|\\bclub\\ scientifique\\b|\\bclub\\ d’astronomie\\b|\\bexpositions\\ artistiques\\b|\\bescape\\ game\\b|\\bjeux\\ de\\ rôles\\b|\\bquiz\\ culture\\ générale\\b|\\bconcours\\ d’éloquence\\b|\\bfootball\\b|\\bbasketball\\b|\\bvolleyball\\b|\\bhandball\\b|\\brugby\\b|\\btennis\\b|\\btennis\\ de\\ table\\b|\\bbadminton\\b|\\bnatation\\b|\\bathlétisme\\b|\\bcourse\\ à\\ pied\\b|\\bcross\\b|\\bescalade\\b|\\barts\\ martiaux\\b|\\bjudo\\b|\\bkaraté\\b|\\bboxe\\b|\\bfitness\\b|\\bmusculation\\b|\\brandonnée\\b|\\bcyclisme\\b|\\bdanse\\ sportive\\b|\\bzumba\\b|\\bcheerleading\\b|\\baviron\\b|\\bescrime\\b|\\bgolf\\b|\\bski\\b)"
+  }
+]
