@@ -5,105 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Connexion - AskMia</title>
   <link rel="stylesheet" href="static/css/Style.css" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
-      margin: 0;
-      padding: 0;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      padding: 20px;
-    }
-
-    header img {
-      height: 60px;
-    }
-
-    .profil-container {
-      max-width: 500px;
-      margin: 50px auto;
-      padding: 40px;
-      background-color: #fafafa;
-      border-radius: 20px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-      text-align: left;
-    }
-
-    h1 {
-      text-align: center;
-      color: #222;
-    }
-
-    .info {
-      margin: 15px 0;
-      font-size: 16px;
-      color: #555;
-    }
-
-    .info span {
-      font-weight: bold;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      margin-left: 20px;
-      padding: 10px 20px;
-      background-color: #6d1246;
-      color: white;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .circles {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-      overflow: hidden;
-    }
-
-    .circle {
-      position: absolute;
-      border-radius: 50%;
-      opacity: 1;
-    }
-
-    .circle.blue {
-      background-color: #a9d8f4;
-    }
-
-    .circle.purple {
-      background-color: #6d1246;
-    }
-
-    .top-right {
-      top: 0;
-      right: 0;
-      width: 100px;
-      height: 100px;
-    }
-    .bottom-left {
-      bottom: 0;
-      left: 0;
-      width: 150px;
-      height: 150px;
-    }
-    .bottom-right {
-      bottom: 0;
-      right: 0;
-      width: 100px;
-      height: 100px;
-    }
-  </style>
 </head>
 <body>
 
@@ -128,11 +29,11 @@
       <form id="student-login">
         <div class="form-group">
           <label for="Student_id">ID Etudiant :</label>
-          <input type="text" id="Student_id" name="Student_id" required>
+          <input type="tel" id="Student_id" name="Student_id" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required>
         </div>
         <div class="form-group">
           <label for="password">Mot de passe :</label>
-          <input type="password" id="password" name="password" required>
+          <input type="password" id="password" name="password" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required>
         </div>
         <button type="submit" class="btn1">Se connecter</button>
       </form>
@@ -151,6 +52,6 @@
     </main>
   </div>
 
-  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+  <script src="static/js/login.js"></script>
 </body>
 </html>

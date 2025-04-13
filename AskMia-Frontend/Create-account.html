@@ -47,15 +47,15 @@
 
           <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required />
+            <input type="password" id="password" name="password" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required />
           </div>
           <button type="submit" class="btn">Créer</button>
         </form>
       </main>
     </div>
 
-    <script src="{{ url_for('static', filename='js/Create-account.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/logout.js') }}"></script>
+    <script src="static/js/Create-account.js"></script>
+    <script src="static/js/logout.js"></script>
     
     <!-- Ajoute ton fichier logout.js ici -->
   </body>
