@@ -1,8 +1,7 @@
-function handleLogin(formId, redirectUrl) {
-  document.getElementById(formId).addEventListener("submit", function (e) {
+function createAccount(formId, redirectUrl) {
+  document.getElementById(formId).addEventListener("submit", async function (e) {
     e.preventDefault();
-    
-    
+
     const student = {
       surname: document.getElementById("surname").value,
       name: document.getElementById("name").value,
@@ -12,29 +11,30 @@ function handleLogin(formId, redirectUrl) {
     };
 
     try {
-    const response = await fetch("/api/create_account", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(student),
-    });
+      const response = await fetch("/api/create_account", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(student),
+      });
 
-    const result = await response.json();
+      const result = await response.json();
 
-    if (result.success) {
-      alert("Compte créé avec succès !");
-      window.location.href = redirectUrl;
-    } else {
-      alert("Erreur : " + result.message);
+      if (result.success) {
+        alert("Compte créé avec succès !");
+        window.location.href = redirectUrl;
+      } else {
+        alert("Erreur : " + result.message );
+      }
+    } catch (error) {
+      console.log("Erreur réseau :", error);
+      alert("Erreur lors de la création du compte.");
+      
     }
-  } catch (error) {
-    console.error("Erreur réseau :", error);
-    alert("Erreur lors de la création du compte.");
-  }
-    window.location.href = redirectUrl;
   });
 }
 
-handleLogin("Logout", "/connexion");
-handleLogin("Create-acc", "/creerCompte");
+
+createAccount("Logout", "/connexion");
+createAccount("Create-acc", "/creerCompte");

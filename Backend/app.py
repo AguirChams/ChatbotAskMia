@@ -32,27 +32,37 @@ def creer_compte():
 @app.route("/api/create_account", methods=["POST"])
 def api_create_account():
     data = request.get_json()
-    
-    nom = data.get("surname")
-    prenom = data.get("name")
-    birthdate = data.get("birthdate")
-    classe = data.get("class")
-    password = data.get("password")
 
-    
-    new_id = models.get_next_etudiant_id()  
-    
-    
-    
-    birthdate_dt = datetime.datetime.strptime(birthdate, "%Y-%m-%d")
-    
-    success = models.create_new_etudiant(new_id, nom, prenom, birthdate_dt, password, classe)
+    try:
+        nom = data.get("surname")
+        prenom = data.get("name")
+        birthdate = data.get("birthdate")
+        classe = data.get("class")
+        password = data.get("password")
+
+        new_id = models.get_next_etudiant_id()
+        print("Nouvel ID étudiant :", new_id)
+
+        birthdate_dt = datetime.datetime.strptime(birthdate, "%Y-%m-%d")
+
+        success = models.create_new_etudiant(new_id, nom, prenom, birthdate_dt, password, classe)
+
+        if success:
+            return jsonify({"success": True, "message": "Compte créé avec succès."})
+        else:
+            return jsonify({"success": False, "message": "Échec de la création du compte."})
+
+    except Exception as e:
+        print("Erreur lors de la création du compte :", str(e))
+        return jsonify({"success": False, "message": "Erreur interne", "error": str(e)}), 500
+
     
     if success:
         return "compte créé"
-        return jsonify({"success": True, "message": "Compte créé avec succès."})
+        return jsonify({"success": True, "message": "Compte créé avec succès."} )
+        
     else:
-        return jsonify({"success": False, "message": "Échec de la création du compte."})
+        return jsonify({"success": False, "message": "Échec de la création du compte."}, {"data" : data})
 
 
 # ----------- Login API ----------- #

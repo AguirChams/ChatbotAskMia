@@ -12,5 +12,5 @@ function handleLogout(formId, redirectUrl) {
 
 // Applique la redirection pour la déconnexion après avoir vérifié que le formulaire existe
 document.addEventListener("DOMContentLoaded", function() {
-    handleLogout("Logout", "Login.html");  // Redirection vers la page Login
+    handleLogout("Logout", "/connexion");  // Redirection vers la page Login
 });

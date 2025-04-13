@@ -108,12 +108,10 @@ def get_all_admins():
 
 # fonction qui trouve l'id du dernier étudiant et l'icremente par 1
 def get_next_etudiant_id():
-    # Récupérer l'ID du dernier étudiant enregistré
-    last_student = db.session.query(Student).order_by(Student.id.desc()).first()
-
-    # Si aucun étudiant n'est trouvé, on retourne 1 (premier étudiant)
-    if not last_student:
+    stmt = select(table_etudiant.c.numeroEtudiant).order_by(table_etudiant.c.numeroEtudiant.desc()).limit(1)
+    with engine.connect() as conn:
+        result = conn.execute(stmt).fetchone()
+    if result is None:
         return 1
+    return result[0] + 1
 
-    # Sinon, on incrémente l'ID du dernier étudiant de 1
-    return last_student.id + 1
