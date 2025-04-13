@@ -25,6 +25,18 @@
         height: 60px;
       }
 
+      /* Nouveau bouton Dark Mode */
+      #dark-mode-toggle {
+        margin-left: auto;
+        background-color: #6d1246;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
       .profil-container {
         max-width: 500px;
         margin: 50px auto;
@@ -38,6 +50,10 @@
       h1 {
         text-align: center;
         color: #222;
+      }
+
+      body.dark-mode h1 {
+        color: #fff;
       }
 
       .info {
@@ -119,6 +135,61 @@
         width: 100px;
         height: 100px;
       }
+
+      /* Styles pour le Dark Mode */
+      body.dark-mode {
+        background-color: #121212;
+        color: #f1f1f1;
+      }
+
+      body.dark-mode header {
+        background-color: #1f1f1f;
+      }
+
+      body.dark-mode .profil-container {
+        background-color: #2a2a2a;
+        color: #f1f1f1;
+      }
+
+      body.dark-mode .info {
+        color: #f1f1f1;
+      }
+
+      body.dark-mode .btn {
+        background-color: #bb86fc;
+      }
+
+      body.dark-mode .password-form input {
+        background-color: #1e1e1e;
+        color: #f1f1f1;
+        border: 1px solid #444;
+      }
+
+      body.dark-mode .password-form button {
+        background-color: #6d1246;
+        color: black;
+      }
+
+      /* Style pour le générateur de citations */
+      #citation-container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f0f8ff;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      body.dark-mode #citation-container {
+        background-color: #333;
+        color: #f1f1f1;
+      }
+
+      .smiley {
+        font-size: 20px;
+        margin-left: 10px;
+      }
     </style>
   </head>
   <body>
@@ -143,16 +214,21 @@
 
     <header>
       <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
+      <!-- Bouton Dark Mode -->
+      <button id="dark-mode-toggle">🌙 Dark Mode</button>
     </header>
 
     <div class="profil-container">
       <h1>Profil</h1>
-      <div class="info" ><span>Nom : </span> <span id="nom"></span></div>
-      <div class="info"><span>Prénom : </span><span id="prenom"></div>
-      <div class="info"><span>Date de naissance : </span> <span id="naissance"></span> </div>
+      <div class="info"><span>Nom : </span> <span id="nom"></span></div>
+      <div class="info"><span>Prénom : </span><span id="prenom"></span></div>
+      <div class="info">
+        <span>Date de naissance : </span> <span id="naissance"></span>
+      </div>
       <div class="info"><span>Classe : </span> <span id="classe"></span></div>
-      <!-- <div class="info"><span>Adresse-mail :</span> <span id=""></span></div> -->
-      <div class="info"><span>ID Étudiant : </span> <span id="idEtudiant"></span></div>
+      <div class="info">
+        <span>ID Étudiant : </span> <span id="idEtudiant"></span>
+      </div>
       <div class="info">
         <span>Mot de passe :</span>
         <button class="btn" onclick="afficherFormulaire()">
@@ -179,9 +255,88 @@
       </div>
     </div>
 
+    <!-- Générateur de citation -->
+    <div id="citation-container">
+      <h2>💡 Citation du jour</h2>
+      <p id="citation" style="font-style: italic; font-size: 16px; color: #444">
+        Chargement...
+      </p>
+      <button class="btn" onclick="genererCitation()">
+        🔁 Nouvelle citation
+      </button>
+    </div>
+
     <script>
-      
+      // Script pour activer/désactiver le Dark Mode
+      const toggleBtn = document.getElementById("dark-mode-toggle");
+      toggleBtn.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+
+        // Change le texte du bouton selon le mode
+        if (document.body.classList.contains("dark-mode")) {
+          toggleBtn.textContent = "☀️ Light Mode";
+        } else {
+          toggleBtn.textContent = "🌙 Dark Mode";
+        }
+      });
+
+      // Liste des citations inspirantes (50 citations) avec smiley personnalisé ajouté
+      const citations = [
+        "Le succès n'est pas final, l’échec n’est pas fatal : c’est le courage de continuer qui compte. – Winston Churchill 😊",
+        "Croyez en vous et tout devient possible. 🌟 😄",
+        "La seule façon de faire du bon travail est d’aimer ce que vous faites. – Steve Jobs 😊",
+        "Chaque jour est une nouvelle chance de briller. ✨ 😎",
+        "N'attendez pas l'inspiration, soyez l'inspiration. 💪 😄",
+        "Le futur appartient à ceux qui croient en la beauté de leurs rêves. – Eleanor Roosevelt 🌈 😊",
+        "Vous êtes plus fort que vous ne le pensez. 🔥 💪",
+        "Le plus grand risque est de ne prendre aucun risque. – Mark Zuckerberg 🌟 😎",
+        "Il n'y a pas de réussite sans échec. – Michael Jordan 🏆 😊",
+        "Faites de votre vie un rêve, et d'un rêve, une réalité. – Antoine de Saint-Exupéry 🌠 😄",
+        "Tout ce dont vous avez besoin est déjà en vous. – Rainer Maria Rilke 🌱 😊",
+        "Rien n'est impossible, l'impossible prend juste un peu plus de temps. – Dan Brown ⏳ 😊",
+        "L’avenir appartient à ceux qui croient à la beauté de leurs rêves. – Eleanor Roosevelt ✨ 😍",
+        "Rien n’arrive jamais par hasard. – Paulo Coelho 💭 😊",
+        "Visez la lune, car même si vous la manquez, vous atterrirez parmi les étoiles. – Les Brown 🌙 ✨",
+        "Le succès, c’est d’aller d’échec en échec sans perdre son enthousiasme. – Winston Churchill 🌟 😊",
+        "Les gagnants ne sont pas ceux qui ne tombent jamais, mais ceux qui se relèvent. 💪 😄",
+        "Cessez de vous sous-estimer. Vous êtes incroyable ! ✨ 😎",
+        "Le bonheur n’est pas quelque chose de prêt à l’emploi, il vient de vos propres actions. – Dalai Lama 🕊️ 😊",
+        "N’arrêtez jamais d’essayer. – Albert Einstein 💡 😄",
+        "Votre travail va occuper une grande partie de votre vie, et la seule manière d’être vraiment satisfait est de faire ce que vous croyez être un excellent travail. – Steve Jobs 🚀 😊",
+        "Le seul endroit où le succès vient avant le travail est dans le dictionnaire. – Vidal Sassoon 📚 😄",
+        "Le plus grand échec est de ne pas avoir essayé. 😟 😎",
+        "Votre limite, c’est vous. – Anonyme 💪 😊",
+        "Visez toujours plus haut. – Anonyme 🎯 😄",
+        "Soyez vous-même, tout le monde est déjà pris. – Oscar Wilde 🤩 😊",
+        "La vie commence là où commence ta zone de confort. – Neale Donald Walsch 🚀 😊",
+        "On ne trouve pas l’équilibre, on le crée. – Anonyme ⚖️ 😄",
+        "Faites-le aujourd’hui, parfois « demain » devient « jamais ». 💡 😎",
+        "Croyez en l’impossible. – Walt Disney 🌠 😊",
+        "Le succès ne consiste pas à gagner, mais à surmonter. – Vince Lombardi 🏅 😊",
+        "Les seules limites qui existent sont celles que vous vous imposez. 🚀 💪",
+        "Soyez le changement que vous voulez voir dans le monde. – Mahatma Gandhi 🌍 😊",
+        "Rien n'est impossible. – Audrey Hepburn 💫 😄",
+        "Le vrai succès, c’est d’être heureux. – Albert Schweitzer 😊 🌟",
+        "La persévérance est la clé de la réussite. – Charles Dickens 🗝️ 😊",
+        "Faites confiance au processus. 🛤️ 😎",
+        "Les rêves ne fonctionnent que si vous travaillez dur. – John C. Maxwell 💪 🌟",
+        "Ne vous contentez pas de suivre les autres, créez votre propre chemin. – Anonyme 🛤️ 😊",
+        "N'ayez jamais peur de commencer. – Anonyme 🌱 💫",
+        "Réalisez vos rêves avant que la vie ne passe. – Anonyme 💭 😊",
+        "Le vrai courage, c’est d’avoir peur, mais de ne pas laisser la peur vous arrêter. – Anonyme 💪 😊",
+        "Vos rêves ne fonctionnent que si vous travaillez dur. – Anonyme 💼 😊",
+        "C'est votre moment. Saisissez-le. – Anonyme ✨ 😄",
+      ];
+
+      // Fonction pour afficher une citation aléatoire
+      function genererCitation() {
+        const citationIndex = Math.floor(Math.random() * citations.length);
+        const citation = citations[citationIndex];
+        document.getElementById("citation").textContent = citation;
+      }
+
+      // Générer la première citation
+      genererCitation();
     </script>
-    <script src="{{ url_for('static', filename='js/Profile.js') }}"></script>
   </body>
 </html>

@@ -26,7 +26,8 @@
         width: auto;
       }
 
-      .btn-profil {
+      .btn-profil,
+      .btn-dark-mode {
         background-color: #6d1246;
         color: white;
         padding: 10px 20px;
@@ -34,6 +35,11 @@
         border-radius: 20px;
         font-size: 14px;
         cursor: pointer;
+      }
+
+      /* Déplacer le bouton Profil légèrement à gauche */
+      #profil-btn {
+        margin-right: 150px;
       }
 
       .content {
@@ -146,6 +152,41 @@
         align-self: flex-start;
         text-align: left;
       }
+
+      /* Dark mode styles */
+      body.dark-mode {
+        background-color: #121212;
+        color: white;
+      }
+
+      header.dark-mode {
+        background-color: #333;
+      }
+
+      .chat-box.dark-mode {
+        background-color: #333;
+        color: white;
+      }
+
+      input[type="text"].dark-mode {
+        background-color: #444;
+        color: white;
+        border: 1px solid #555;
+      }
+
+      button.dark-mode {
+        background-color: #444;
+        color: white;
+      }
+
+      .user-message.dark-mode {
+        background-color: #444;
+      }
+
+      .bot-message.dark-mode {
+        background-color: #222;
+        color: white;
+      }
     </style>
   </head>
   <body>
@@ -155,6 +196,7 @@
         alt="Logo UVSQ"
       />
       <button id="profil-btn" class="btn-profil">Profil</button>
+      <button id="dark-mode-toggle" class="btn-dark-mode">🌙 Dark Mode</button>
     </header>
 
     <div class="content">
@@ -189,5 +231,30 @@
 
     <!-- Redirection profil -->
     <script src="{{ url_for('static', filename='js/vers_profil.js') }}"></script>
+
+    <!-- Dark mode script -->
+    <script>
+      const darkModeButton = document.getElementById("dark-mode-toggle");
+      const body = document.body;
+      const header = document.querySelector("header");
+      const chatBox = document.querySelector(".chat-box");
+      const messageInputs = document.querySelector('input[type="text"]');
+      const buttons = document.querySelectorAll("button");
+
+      darkModeButton.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        header.classList.toggle("dark-mode");
+        chatBox.classList.toggle("dark-mode");
+        messageInputs.classList.toggle("dark-mode");
+        buttons.forEach((button) => button.classList.toggle("dark-mode"));
+
+        // Change le texte du bouton selon le mode
+        if (body.classList.contains("dark-mode")) {
+          darkModeButton.textContent = "☀️ Light Mode";
+        } else {
+          darkModeButton.textContent = "🌙 Dark Mode";
+        }
+      });
+    </script>
   </body>
 </html>
