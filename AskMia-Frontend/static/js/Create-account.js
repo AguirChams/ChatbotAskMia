@@ -37,7 +37,7 @@ function createAccount(formId, redirectUrl) {
     };
 
     try {
-      const response = await fetch("/api/create_account", {
+      const response = await fetch("http://localhost:5000/api/create_account", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
