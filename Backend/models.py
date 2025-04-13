@@ -98,6 +98,15 @@ def get_all_etudiants():
     conn.close()
     return rows
 
+def get_etudiant_by_id(numEtudiant):
+    stmt = select(table_etudiant).where(table_etudiant.c.numeroEtudiant == numEtudiant)
+    with engine.connect() as conn:
+        result = conn.execute(stmt)
+        row = result.fetchone()
+    conn.close()
+    return row
+
+    
 def get_all_admins():
     stmt = select(table_admin)
     with engine.connect() as conn:
@@ -115,3 +124,18 @@ def get_next_etudiant_id():
         return 1
     return result[0] + 1
 
+# fonction qui modifie le password de l'étudiant
+def update_password_etudiant(etudiant_id, new_password_hash):
+    try:
+        stmt = (
+            update(table_etudiant)
+            .where(table_etudiant.c.numeroEtudiant == etudiant_id)
+            .values(motDePasse=new_password_hash)
+        )
+        with engine.connect() as conn:
+            conn.execute(stmt)
+            conn.commit()
+        return True
+    except Exception as e:
+        print("Erreur update_password_etudiant:", e)
+        return False

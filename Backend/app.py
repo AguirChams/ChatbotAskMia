@@ -28,6 +28,55 @@ def page_connexion():
 def creer_compte():
     return render_template("Create-account.html")
 
+@app.route("/profil")
+def page_profil():
+    return render_template("profile.html")
+
+# ----------- Update Password API ----------- #
+@app.route("/api/change-password", methods=["POST"])
+def change_password():
+    data = request.get_json()
+
+    student_id = int(data.get("student_id"))
+    ancien_mdp = data.get("ancien_mdp")
+    nouveau_mdp = data.get("nouveau_mdp")
+    confirmation_mdp = data.get("confirmation_mdp")
+
+    if nouveau_mdp != confirmation_mdp:
+        return jsonify({"success": False, "message": "Les mots de passe ne correspondent pas."})
+
+    # Vérifier l'ancien mot de passe
+    ancien_mdp_hash = hashlib.sha256(ancien_mdp.encode()).hexdigest()
+    stored_password = models.get_mdp_from_etudiant(student_id)
+
+    if stored_password != ancien_mdp_hash:
+        return jsonify({"success": False, "message": "Ancien mot de passe incorrect."})
+
+    # Hacher et enregistrer le nouveau mot de passe
+    nouveau_mdp_hash = hashlib.sha256(nouveau_mdp.encode()).hexdigest()
+    updated = models.update_password_etudiant(student_id, nouveau_mdp_hash)
+
+    if updated:
+        return jsonify({"success": True, "message": "Mot de passe mis à jour avec succès."})
+    else:
+        return jsonify({"success": False, "message": "Erreur lors de la mise à jour du mot de passe."})
+
+# ----------- Fetch Profile API ----------- #
+@app.route("/api/student/<int:student_id>", methods=["GET"])
+def get_student_by_id(student_id):
+    etudiant = models.get_etudiant_by_id(student_id)
+    if etudiant:
+        return jsonify({
+            "numeroEtudiant": etudiant.numeroEtudiant,
+            "nom": etudiant.nom,
+            "prenom": etudiant.prenom,
+            "dateDeNaissance": etudiant.dateDeNaissance.strftime("%Y-%m-%d"),
+            "classe": etudiant.classe
+        })
+    else:
+        return jsonify({"error": "Étudiant introuvable"}), 404
+
+
 # ----------- Create account API ----------- #
 @app.route("/api/create_account", methods=["POST"])
 def api_create_account():
@@ -131,6 +180,4 @@ def debug_create_admin_debug():
 if __name__ == "__main__":
     app.run(debug=True)
 
-@app.route("/profil")
-def page_profil():
-    return render_template("profile.html")
+

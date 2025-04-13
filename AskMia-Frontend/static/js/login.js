@@ -20,8 +20,9 @@ function handleLogin(formId, redirectUrl) {
       .then(data => {
         console.log("Réponse serveur :", data);
         if (data.success) {
+          localStorage.setItem("student_id", studentId); // stocke l’ID dans le localStorage
           window.location.href = redirectUrl;
-        } else {
+        }else {
           alert("Identifiants invalides");
         }
       })

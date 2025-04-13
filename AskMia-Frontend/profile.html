@@ -147,12 +147,12 @@
 
     <div class="profil-container">
       <h1>Profil</h1>
-      <div class="info"><span>Nom :</span></div>
-      <div class="info"><span>Prénom :</span></div>
-      <div class="info"><span>Date de naissance :</span></div>
-      <div class="info"><span>Classe :</span></div>
-      <div class="info"><span>Adresse-mail :</span></div>
-      <div class="info"><span>ID Étudiant :</span></div>
+      <div class="info" ><span>Nom : </span> <span id="nom"></span></div>
+      <div class="info"><span>Prénom : </span><span id="prenom"></div>
+      <div class="info"><span>Date de naissance : </span> <span id="naissance"></span> </div>
+      <div class="info"><span>Classe : </span> <span id="classe"></span></div>
+      <!-- <div class="info"><span>Adresse-mail :</span> <span id=""></span></div> -->
+      <div class="info"><span>ID Étudiant : </span> <span id="idEtudiant"></span></div>
       <div class="info">
         <span>Mot de passe :</span>
         <button class="btn" onclick="afficherFormulaire()">
@@ -180,9 +180,8 @@
     </div>
 
     <script>
-      function afficherFormulaire() {
-        document.getElementById("formulaire-mdp").style.display = "block";
-      }
+      
     </script>
+    <script src="{{ url_for('static', filename='js/Profile.js') }}"></script>
   </body>
 </html>
