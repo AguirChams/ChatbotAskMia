@@ -1,57 +1,61 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Connexion - AskMia</title>
-  <link rel="stylesheet" href="static/css/Style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connexion - AskMia</title>
+    <link rel="stylesheet" href="static/css/Style.css" />
+  </head>
+  <body>
+    <div class="bubble bubble1"></div>
+    <div class="bubble bubble2"></div>
+    <div class="bubble bubble3"></div>
+    <div class="bubble bubble4"></div>
 
-  <div class="bubble bubble1"></div>
-  <div class="bubble bubble2"></div>
-  <div class="bubble bubble3"></div>
-  <div class="bubble bubble4"></div>
- 
+    <div class="container">
+      <header>
+        <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
+      </header>
 
-  <div class="container">
-    <header>
-      <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo"/>
-    </header>
+      <div class="login-layout">
+        <div class="intro-text">
+          <h1>AskMia</h1>
+          <p>Avec AskMia vous trouverez les réponses à toutes vos questions</p>
+        </div>
 
-    <div class="login-layout">
-      <div class="intro-text">
-        <h1>AskMia</h1>
-        <p>Avec AskMia vous trouverez les réponses à toutes vos questions</p>
+        <main class="form-container-right">
+          <!-- Formulaire étudiant -->
+          <form id="student-login">
+            <div class="form-group">
+              <label for="Student_id">ID Étudiant :</label>
+              <input type="text" id="Student_id" name="Student_id" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe :</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit" class="btn1">Se connecter</button>
+          </form>
+
+          <hr
+            style="margin: 40px 0; border: none; border-top: 1px solid #6f0142"
+          />
+
+          <!-- Formulaire admin -->
+          <form id="admin-login">
+            <div class="form-group">
+              <label for="Admin_id">ID Admin :</label>
+              <input type="text" id="Admin_id" name="Admin_id" required />
+            </div>
+            <button type="submit" class="btn1">Se connecter</button>
+          </form>
+        </main>
       </div>
+    </div>
 
-    <main class="form-container-right">
-      <form id="student-login">
-        <div class="form-group">
-          <label for="Student_id">ID Etudiant :</label>
-          <input type="tel" id="Student_id" name="Student_id" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Mot de passe :</label>
-          <input type="password" id="password" name="password" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required>
-        </div>
-        <button type="submit" class="btn1">Se connecter</button>
-      </form>
-
-        <hr style="margin: 40px 0; border: none; border-top: 1px solid #6f0142;">
-
-      <form id="admin-login">
-        <div class="form-group">
-          <label for="Admin_id">ID Admin :</label>
-          <input type="text" id="Admin_id" name="Admin_id" required>
-        </div>
-  
-        <button type="submit" class="btn1">Se connecter</button>
-      </form>
-      
-    </main>
-  </div>
-
-  <script src="static/js/login.js"></script>
-</body>
+    <script
+      src="{{ url_for('static', filename='js/login.js') }}"
+      defer
+    ></script>
+  </body>
 </html>

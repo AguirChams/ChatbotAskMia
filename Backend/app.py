@@ -117,17 +117,29 @@ def api_create_account():
 # ----------- Login API ----------- #
 @app.route("/api/login/student", methods=["POST"])
 def login_student():
-    data = request.get_json()
-    student_id = int(data.get("student_id"))
-    password = data.get("password")
+    try:
+        data = request.get_json()
+        print("Requête reçue :", data)
 
-    password_hash = hashlib.sha256(password.encode()).hexdigest()
-    stored_password = models.get_mdp_from_etudiant(student_id)
+        student_id = int(data.get("student_id"))
+        password = data.get("password")
 
-    if stored_password == password_hash:
-        return jsonify({"success": True})
-    else:
-        return jsonify({"success": False})
+        password_hash = hashlib.sha256(password.encode()).hexdigest()
+        stored_password = models.get_mdp_from_etudiant(student_id)
+
+        print(f"[DEBUG] Tentative de connexion avec ID: {student_id}")
+        print(f"[DEBUG] Mot de passe entré: {password}")
+        print(f"[DEBUG] Hash calculé: {password_hash}")
+        print(f"[DEBUG] Hash stocké: {stored_password}")
+
+        if stored_password == password_hash:
+            return jsonify({"success": True})
+        else:
+            return jsonify({"success": False})
+    except Exception as e:
+        print("❌ ERREUR :", str(e))
+        return jsonify({"success": False, "message": "Erreur interne", "error": str(e)}), 500
+
 
 @app.route("/api/login/admin", methods=["POST"])
 def login_admin():

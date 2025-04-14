@@ -3,10 +3,10 @@ function handleLogin(formId, redirectUrl) {
     e.preventDefault();
 
     if (formId === "student-login") {
-      const studentId = document.getElementById("Student_id").value;
+      const studentId = document.getElementById("Student_id").value.trim();
       const password = document.getElementById("password").value;
  
-      fetch("http://localhost:5000/api/login/student", {
+      fetch("http://127.0.0.1:5000/api/login/student", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

@@ -20,18 +20,17 @@ table_admin = Table("Admin", metadata_obj, Column("clef", String(64), primary_ke
 def init_db():
     metadata_obj.create_all(engine)
 
-
 def get_mdp_from_etudiant(numEtudiant):
     stmt = select(table_etudiant.c.motDePasse).where(
         table_etudiant.c.numeroEtudiant == int(numEtudiant))
     with engine.connect() as conn:
         result = conn.execute(stmt)
-    conn.close()
-    row = result.fetchone()
+        row = result.fetchone()  # <- DOIT être dans le `with`
     if row is not None:
         return row[0]
     else:
         return None
+
 
 
 def get_clefs_from_admin():
@@ -68,7 +67,6 @@ def create_new_clef_admin(clef):
     with engine.connect() as conn:
         conn.execute(stmt)
         conn.commit()
-    conn.close()
 
 
 def update_mdp_etudiant(numEtudiant, nouveauMdp):
