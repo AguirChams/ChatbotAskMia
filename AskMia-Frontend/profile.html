@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil Étudiant</title>
-    <link rel="stylesheet" href="static/css/Style.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -25,7 +24,6 @@
         height: 60px;
       }
 
-      /* Nouveau bouton Dark Mode */
       #dark-mode-toggle {
         margin-left: auto;
         background-color: #6d1246;
@@ -67,15 +65,13 @@
       }
 
       .btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
         background-color: #6d1246;
         color: white;
         border: none;
         border-radius: 20px;
-        cursor: pointer;
+        padding: 10px 20px;
         font-size: 14px;
+        cursor: pointer;
       }
 
       .password-form {
@@ -136,7 +132,6 @@
         height: 100px;
       }
 
-      /* Styles pour le Dark Mode */
       body.dark-mode {
         background-color: #121212;
         color: #f1f1f1;
@@ -156,7 +151,7 @@
       }
 
       body.dark-mode .btn {
-        background-color: #bb86fc;
+        background-color: #6d1246;
       }
 
       body.dark-mode .password-form input {
@@ -170,30 +165,98 @@
         color: black;
       }
 
-      /* Style pour le générateur de citations */
-      #citation-container {
+      #citation-container,
+      #quiz-informatique {
         max-width: 500px;
-        margin: 20px auto;
         padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        background-color: #f0f8ff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      }
+
+      body.dark-mode #citation-container,
+      body.dark-mode #quiz-informatique,
+      body.dark-mode #morpion-game {
+        background-color: #333;
+        color: #f1f1f1;
+      }
+
+      .qcm-option {
+        display: block;
+        width: 100%;
+        max-width: 400px;
+        margin: 10px auto;
+        padding: 12px 20px;
+        background-color: #6d1246;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 15px;
+        text-align: center;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .qcm-option:hover {
+        background-color: #8a2e62;
+        transform: scale(1.03);
+      }
+
+      .qcm-option:active {
+        background-color: #561033;
+      }
+
+      .qcm-option.selected {
+        background-color: #bb86fc;
+        color: black;
+      }
+
+      /* Morpion */
+      #morpion-game {
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 400px;
         background-color: #f0f8ff;
         border-radius: 15px;
         text-align: center;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
       }
 
-      body.dark-mode #citation-container {
-        background-color: #333;
-        color: #f1f1f1;
+      .board {
+        display: grid;
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+        gap: 5px;
+        margin: 20px auto 0;
+        justify-content: center;
       }
 
-      .smiley {
-        font-size: 20px;
-        margin-left: 10px;
+      .cell {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        border: 2px solid #333;
+        background-color: #f0f0f0;
+        cursor: pointer;
+      }
+
+      .cell.taken {
+        background-color: #e0e0e0;
+        cursor: not-allowed;
+      }
+
+      #game-status {
+        margin-top: 10px;
+        font-weight: bold;
       }
     </style>
   </head>
   <body>
-    <!-- Bulles décoratives -->
     <div class="circles">
       <div class="circle blue top-right"></div>
       <div
@@ -214,7 +277,6 @@
 
     <header>
       <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
-      <!-- Bouton Dark Mode -->
       <button id="dark-mode-toggle">🌙 Dark Mode</button>
     </header>
 
@@ -231,17 +293,14 @@
       </div>
       <div class="info">
         <span>Mot de passe :</span>
-        <button class="btn" onclick="afficherFormulaire()">
+        <button class="btn" id="toggle-mdp-btn" onclick="afficherFormulaire()">
           Modifier le mot de passe
         </button>
-
         <form class="password-form" id="formulaire-mdp">
           <label for="ancien-mdp">Ancien mot de passe :</label>
           <input type="password" id="ancien-mdp" name="ancien-mdp" required />
-
           <label for="nouveau-mdp">Nouveau mot de passe :</label>
           <input type="password" id="nouveau-mdp" name="nouveau-mdp" required />
-
           <label for="confirmation-mdp">Confirmer le mot de passe :</label>
           <input
             type="password"
@@ -249,94 +308,227 @@
             name="confirmation-mdp"
             required
           />
-
           <button type="submit" class="btn">Valider</button>
         </form>
       </div>
     </div>
 
-    <!-- Générateur de citation -->
-    <div id="citation-container">
-      <h2>💡 Citation du jour</h2>
-      <p id="citation" style="font-style: italic; font-size: 16px; color: #444">
-        Chargement...
-      </p>
-      <button class="btn" onclick="genererCitation()">
-        🔁 Nouvelle citation
-      </button>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;
+        margin-top: 30px;
+      "
+    >
+      <div id="citation-container">
+        <h2>💡 Citation du jour</h2>
+        <p
+          id="citation"
+          style="font-style: italic; font-size: 16px; color: #444"
+        >
+          Chargement...
+        </p>
+        <button class="btn" onclick="genererCitation()">
+          🔁 Nouvelle citation
+        </button>
+      </div>
+
+      <div id="quiz-informatique">
+        <h2>🧠 Quiz Informatique</h2>
+        <p id="question-texte" style="font-weight: bold"></p>
+        <form id="quiz-form"></form>
+        <p id="score" style="font-weight: bold; margin-top: 10px">
+          Score : 0 ✅
+        </p>
+        <button class="btn" onclick="verifierReponse()">✅ Vérifier</button>
+        <p id="resultat-quiz" style="margin-top: 15px"></p>
+      </div>
     </div>
 
+    <div id="morpion-game">
+      <h2>🎮 Jeu de Morpion (Tic-Tac-Toe)</h2>
+      <div id="game-status"></div>
+      <div class="board" id="board"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Profile.js') }}"></script>
+
     <script>
-      // Script pour activer/désactiver le Dark Mode
       const toggleBtn = document.getElementById("dark-mode-toggle");
       toggleBtn.addEventListener("click", () => {
         document.body.classList.toggle("dark-mode");
-
-        // Change le texte du bouton selon le mode
-        if (document.body.classList.contains("dark-mode")) {
-          toggleBtn.textContent = "☀️ Light Mode";
-        } else {
-          toggleBtn.textContent = "🌙 Dark Mode";
-        }
+        toggleBtn.textContent = document.body.classList.contains("dark-mode")
+          ? "☀️ Light Mode"
+          : "🌙 Dark Mode";
       });
 
-      // Liste des citations inspirantes (50 citations) avec smiley personnalisé ajouté
-      const citations = [
-        "Le succès n'est pas final, l’échec n’est pas fatal : c’est le courage de continuer qui compte. – Winston Churchill 😊",
-        "Croyez en vous et tout devient possible. 🌟 😄",
-        "La seule façon de faire du bon travail est d’aimer ce que vous faites. – Steve Jobs 😊",
-        "Chaque jour est une nouvelle chance de briller. ✨ 😎",
-        "N'attendez pas l'inspiration, soyez l'inspiration. 💪 😄",
-        "Le futur appartient à ceux qui croient en la beauté de leurs rêves. – Eleanor Roosevelt 🌈 😊",
-        "Vous êtes plus fort que vous ne le pensez. 🔥 💪",
-        "Le plus grand risque est de ne prendre aucun risque. – Mark Zuckerberg 🌟 😎",
-        "Il n'y a pas de réussite sans échec. – Michael Jordan 🏆 😊",
-        "Faites de votre vie un rêve, et d'un rêve, une réalité. – Antoine de Saint-Exupéry 🌠 😄",
-        "Tout ce dont vous avez besoin est déjà en vous. – Rainer Maria Rilke 🌱 😊",
-        "Rien n'est impossible, l'impossible prend juste un peu plus de temps. – Dan Brown ⏳ 😊",
-        "L’avenir appartient à ceux qui croient à la beauté de leurs rêves. – Eleanor Roosevelt ✨ 😍",
-        "Rien n’arrive jamais par hasard. – Paulo Coelho 💭 😊",
-        "Visez la lune, car même si vous la manquez, vous atterrirez parmi les étoiles. – Les Brown 🌙 ✨",
-        "Le succès, c’est d’aller d’échec en échec sans perdre son enthousiasme. – Winston Churchill 🌟 😊",
-        "Les gagnants ne sont pas ceux qui ne tombent jamais, mais ceux qui se relèvent. 💪 😄",
-        "Cessez de vous sous-estimer. Vous êtes incroyable ! ✨ 😎",
-        "Le bonheur n’est pas quelque chose de prêt à l’emploi, il vient de vos propres actions. – Dalai Lama 🕊️ 😊",
-        "N’arrêtez jamais d’essayer. – Albert Einstein 💡 😄",
-        "Votre travail va occuper une grande partie de votre vie, et la seule manière d’être vraiment satisfait est de faire ce que vous croyez être un excellent travail. – Steve Jobs 🚀 😊",
-        "Le seul endroit où le succès vient avant le travail est dans le dictionnaire. – Vidal Sassoon 📚 😄",
-        "Le plus grand échec est de ne pas avoir essayé. 😟 😎",
-        "Votre limite, c’est vous. – Anonyme 💪 😊",
-        "Visez toujours plus haut. – Anonyme 🎯 😄",
-        "Soyez vous-même, tout le monde est déjà pris. – Oscar Wilde 🤩 😊",
-        "La vie commence là où commence ta zone de confort. – Neale Donald Walsch 🚀 😊",
-        "On ne trouve pas l’équilibre, on le crée. – Anonyme ⚖️ 😄",
-        "Faites-le aujourd’hui, parfois « demain » devient « jamais ». 💡 😎",
-        "Croyez en l’impossible. – Walt Disney 🌠 😊",
-        "Le succès ne consiste pas à gagner, mais à surmonter. – Vince Lombardi 🏅 😊",
-        "Les seules limites qui existent sont celles que vous vous imposez. 🚀 💪",
-        "Soyez le changement que vous voulez voir dans le monde. – Mahatma Gandhi 🌍 😊",
-        "Rien n'est impossible. – Audrey Hepburn 💫 😄",
-        "Le vrai succès, c’est d’être heureux. – Albert Schweitzer 😊 🌟",
-        "La persévérance est la clé de la réussite. – Charles Dickens 🗝️ 😊",
-        "Faites confiance au processus. 🛤️ 😎",
-        "Les rêves ne fonctionnent que si vous travaillez dur. – John C. Maxwell 💪 🌟",
-        "Ne vous contentez pas de suivre les autres, créez votre propre chemin. – Anonyme 🛤️ 😊",
-        "N'ayez jamais peur de commencer. – Anonyme 🌱 💫",
-        "Réalisez vos rêves avant que la vie ne passe. – Anonyme 💭 😊",
-        "Le vrai courage, c’est d’avoir peur, mais de ne pas laisser la peur vous arrêter. – Anonyme 💪 😊",
-        "Vos rêves ne fonctionnent que si vous travaillez dur. – Anonyme 💼 😊",
-        "C'est votre moment. Saisissez-le. – Anonyme ✨ 😄",
-      ];
-
-      // Fonction pour afficher une citation aléatoire
       function genererCitation() {
         const citationIndex = Math.floor(Math.random() * citations.length);
-        const citation = citations[citationIndex];
-        document.getElementById("citation").textContent = citation;
+        document.getElementById("citation").textContent =
+          citations[citationIndex];
       }
 
-      // Générer la première citation
       genererCitation();
+
+      let questionActuelle = 0;
+      let reponseSelectionnee = null;
+      let score = 0;
+
+      function afficherQuestion() {
+        const question = questions[questionActuelle];
+        document.getElementById("question-texte").textContent =
+          question.intitule;
+        const quizForm = document.getElementById("quiz-form");
+        quizForm.innerHTML = "";
+        reponseSelectionnee = null;
+
+        question.choix.forEach((choix, index) => {
+          const button = document.createElement("button");
+          button.textContent = choix;
+          button.className = "qcm-option";
+          button.type = "button";
+          button.onclick = () => {
+            document
+              .querySelectorAll(".qcm-option")
+              .forEach((btn) => btn.classList.remove("selected"));
+            button.classList.add("selected");
+            reponseSelectionnee = index;
+          };
+          quizForm.appendChild(button);
+        });
+
+        document.getElementById("score").textContent = `Score : ${score} ✅`;
+      }
+
+      function verifierReponse() {
+        const result = document.getElementById("resultat-quiz");
+
+        if (reponseSelectionnee === null) {
+          result.textContent = "Veuillez sélectionner une réponse 😅";
+          result.style.color = "orange";
+          return;
+        }
+
+        if (reponseSelectionnee === questions[questionActuelle].bonneReponse) {
+          result.textContent = "Bonne réponse ! 🎉";
+          result.style.color = "green";
+          score++;
+        } else {
+          result.textContent = "Oups, mauvaise réponse 😕";
+          result.style.color = "red";
+        }
+
+        questionActuelle++;
+
+        if (questionActuelle >= questions.length) {
+          setTimeout(() => {
+            result.textContent = `Quiz terminé ! Score final : ${score}/${questions.length} 🎯`;
+            document.getElementById(
+              "score"
+            ).textContent = `Score : ${score}/${questions.length} 🏁`;
+            questionActuelle = 0;
+            score = 0;
+            setTimeout(() => {
+              result.textContent = "";
+              afficherQuestion();
+            }, 3000);
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            result.textContent = "";
+            afficherQuestion();
+          }, 2000);
+        }
+      }
+
+      afficherQuestion();
+
+      // Jeu de Morpion
+      let board = ["", "", "", "", "", "", "", "", ""];
+      let currentPlayer = "X"; // L'utilisateur commence
+      let gameOver = false;
+
+      const boardElement = document.getElementById("board");
+      const gameStatusElement = document.getElementById("game-status");
+
+      function createBoard() {
+        boardElement.innerHTML = ""; // Réinitialiser le plateau
+        board.forEach((cell, index) => {
+          const cellElement = document.createElement("div");
+          cellElement.classList.add("cell");
+          if (cell !== "") {
+            cellElement.classList.add("taken");
+            cellElement.textContent = cell;
+          }
+          cellElement.addEventListener("click", () => handleCellClick(index));
+          boardElement.appendChild(cellElement);
+        });
+      }
+
+      function handleCellClick(index) {
+        if (board[index] !== "" || gameOver) return;
+
+        board[index] = currentPlayer;
+        createBoard();
+
+        if (checkWinner()) {
+          gameStatusElement.textContent = `${currentPlayer} a gagné ! 🎉`;
+          gameOver = true;
+        } else if (board.every((cell) => cell !== "")) {
+          gameStatusElement.textContent = "Match nul ! 🙁";
+          gameOver = true;
+        } else {
+          currentPlayer = currentPlayer === "X" ? "O" : "X";
+          if (currentPlayer === "O") {
+            setTimeout(() => computerMove(), 500);
+          }
+        }
+      }
+
+      function computerMove() {
+        const availableMoves = board
+          .map((cell, index) => (cell === "" ? index : null))
+          .filter((index) => index !== null);
+        const randomMove =
+          availableMoves[Math.floor(Math.random() * availableMoves.length)];
+        board[randomMove] = "O";
+        createBoard();
+
+        if (checkWinner()) {
+          gameStatusElement.textContent = "L'ordinateur a gagné ! 😞";
+          gameOver = true;
+        } else if (board.every((cell) => cell !== "")) {
+          gameStatusElement.textContent = "Match nul ! 🙁";
+          gameOver = true;
+        } else {
+          currentPlayer = "X";
+        }
+      }
+
+      function checkWinner() {
+        const winningCombinations = [
+          [0, 1, 2],
+          [3, 4, 5],
+          [6, 7, 8],
+          [0, 3, 6],
+          [1, 4, 7],
+          [2, 5, 8],
+          [0, 4, 8],
+          [2, 4, 6],
+        ];
+
+        return winningCombinations.some(([a, b, c]) => {
+          return (
+            board[a] !== "" && board[a] === board[b] && board[a] === board[c]
+          );
+        });
+      }
+
+      createBoard();
     </script>
+    <script src="{{ url_for('static', filename='js/Profile.js') }}"></script>
   </body>
 </html>

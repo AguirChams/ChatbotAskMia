@@ -19,8 +19,18 @@ window.onload = function () {
 };
 
 function afficherFormulaire() {
-  document.getElementById("formulaire-mdp").style.display = "block";
+  const formulaire = document.getElementById("formulaire-mdp");
+  const bouton = document.getElementById("toggle-mdp-btn");
+
+  if (formulaire.style.display === "block") {
+    formulaire.style.display = "none";
+    bouton.textContent = "Modifier le mot de passe";
+  } else {
+    formulaire.style.display = "block";
+    bouton.textContent = "Annuler";
+  }
 }
+
 
 function handleChangePassword(redirectUrl) {
   document
