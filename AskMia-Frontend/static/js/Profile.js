@@ -45,7 +45,7 @@ function handleChangePassword(redirectUrl) {
       console.log(ancienMdp, nouveauMdp, confirmationMdp);
       if (!studentId) {
         alert("Erreur : Identifier vous.");
-        window.location.href = "/connexion";
+        window.location.href = "/";
         return;
       } else if (nouveauMdp !== confirmationMdp) {
         alert("Les mots de passe ne correspondent pas.");
@@ -80,4 +80,4 @@ function handleChangePassword(redirectUrl) {
       }
     });
 }
-handleChangePassword("/connexion");
+handleChangePassword("/");

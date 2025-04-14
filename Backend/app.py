@@ -18,11 +18,11 @@ CORS(app)
 # Page d'accueil
 @app.route("/")
 def page_principale():
-    return render_template("Index.html")
-
-@app.route("/connexion")
-def page_connexion():
     return render_template("Login.html")
+
+@app.route("/chatbot")
+def page_connexion():
+    return render_template("Index.html")
 
 @app.route("/creerCompte")
 def creer_compte():

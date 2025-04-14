@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion - AskMia</title>
     <link rel="stylesheet" href="static/css/Style.css" />
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        position: absolute; /* Fixe la position du logo en haut à gauche */
+        top: 0;
+        left: 0;
+      }
+
+      header img {
+        height: 60px;
+      }
+
+      @keyframes fadeInPage {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.loaded header,
+      body.loaded .intro-text,
+      body.loaded .form-container-right,
+      body.loaded .form-group,
+      body.loaded button,
+      body.loaded h1,
+      body.loaded p {
+        animation: fadeInPage 0.8s ease-in-out;
+        animation-fill-mode: both;
+      }
+    </style>
   </head>
   <body>
     <div class="bubble bubble1"></div>
@@ -57,5 +93,11 @@
       src="{{ url_for('static', filename='js/login.js') }}"
       defer
     ></script>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
   </body>
 </html>

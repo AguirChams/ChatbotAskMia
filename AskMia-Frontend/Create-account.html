@@ -5,6 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Créer un compte - AskMia</title>
     <link rel="stylesheet" href="static/css/Style.css" />
+    <style>
+      header {
+        display: flex;
+        align-items: center;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      header img {
+        height: 60px;
+      }
+
+      @keyframes fadeInPage {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.loaded header,
+      body.loaded main,
+      body.loaded h1,
+      body.loaded .form-container-center,
+      body.loaded .form-group,
+      body.loaded .btn,
+      body.loaded .btn2 {
+        animation: fadeInPage 0.8s ease-in-out;
+        animation-fill-mode: both;
+      }
+    </style>
   </head>
   <body>
     <div class="bubble bubble1"></div>
@@ -47,7 +83,16 @@
 
           <div class="form-group">
             <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" maxlength="8" minlength="8" pattern="^\d{8,8}$" inputmode="numeric" required />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              maxlength="8"
+              minlength="8"
+              pattern="^\d{8,8}$"
+              inputmode="numeric"
+              required
+            />
           </div>
           <button type="submit" class="btn">Créer</button>
         </form>
@@ -56,7 +101,11 @@
 
     <script src="static/js/Create-account.js"></script>
     <script src="static/js/logout.js"></script>
-    
-    <!-- Ajoute ton fichier logout.js ici -->
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
   </body>
 </html>

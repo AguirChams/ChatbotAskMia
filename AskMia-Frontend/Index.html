@@ -187,6 +187,55 @@
         background-color: #222;
         color: white;
       }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .user-message,
+      .bot-message {
+        animation: fadeInUp 0.3s ease-in-out;
+      }
+
+      @keyframes fadeInPage {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.loaded .content,
+      body.loaded header,
+      body.loaded .chat-box,
+      body.loaded .input-container,
+      body.loaded .circles,
+      body.loaded button,
+      body.loaded h1,
+      body.loaded p {
+        animation: fadeInPage 0.8s ease-in-out;
+        animation-fill-mode: both;
+      }
+
+      body,
+      header,
+      .chat-box,
+      input[type="text"],
+      button,
+      .user-message,
+      .bot-message {
+        transition: background-color 0.5s ease, color 0.5s ease;
+      }
     </style>
   </head>
   <body>
@@ -195,6 +244,9 @@
         src="{{ url_for('static', filename='Assets/logo-uvsq.png') }}"
         alt="Logo UVSQ"
       />
+      <button id="logout-btn" class="btn-profil" style="margin-right: 300px">
+        Se déconnecter
+      </button>
       <button id="profil-btn" class="btn-profil">Profil et Jeux</button>
       <button id="dark-mode-toggle" class="btn-dark-mode">🌙 Dark Mode</button>
     </header>
@@ -254,6 +306,19 @@
         } else {
           darkModeButton.textContent = "🌙 Dark Mode";
         }
+      });
+    </script>
+    <script>
+      document
+        .getElementById("logout-btn")
+        .addEventListener("click", function () {
+          // Optionnel : ici tu peux ajouter du code pour supprimer un token/session si nécessaire
+          window.location.href = "/"; // Redirection vers la page de connexion
+        });
+    </script>
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
       });
     </script>
   </body>

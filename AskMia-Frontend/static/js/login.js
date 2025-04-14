@@ -57,7 +57,7 @@ function handleLogin(formId, redirectUrl) {
   });
 }
 
-handleLogin("student-login", "/");
+handleLogin("student-login", "/chatbot");
 handleLogin("admin-login", "/creerCompte");
 
 

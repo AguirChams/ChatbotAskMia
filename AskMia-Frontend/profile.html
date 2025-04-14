@@ -254,6 +254,60 @@
         margin-top: 10px;
         font-weight: bold;
       }
+
+      .header-buttons {
+        margin-left: auto; /* pousse le groupe de boutons à droite */
+        display: flex;
+        gap: 10px; /* espace entre les boutons */
+      }
+
+      body.dark-mode .cell {
+        color: black;
+      }
+
+      body.dark-mode .cell::before {
+        font-weight: bold;
+      }
+
+      @keyframes fadeInPage {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      body.loaded header,
+      body.loaded .profil-container,
+      body.loaded #citation-container,
+      body.loaded #quiz-informatique,
+      body.loaded #morpion-game,
+      body.loaded .circles,
+      body.loaded button,
+      body.loaded h1,
+      body.loaded p,
+      body.loaded .info,
+      body.loaded .board,
+      body.loaded .cell {
+        animation: fadeInPage 0.8s ease-in-out;
+        animation-fill-mode: both;
+      }
+
+      body,
+      header,
+      main,
+      .profile-section,
+      input[type="text"],
+      button,
+      textarea,
+      .user-info,
+      .profile-photo {
+        transition: background-color 0.5s ease, color 0.5s ease,
+          border-color 0.5s ease;
+      }
     </style>
   </head>
   <body>
@@ -277,7 +331,11 @@
 
     <header>
       <img src="static/Assets/logo-uvsq.png" alt="Logo UVSQ" class="logo" />
-      <button id="dark-mode-toggle">🌙 Dark Mode</button>
+      <div class="header-buttons">
+        <button id="logout-btn" class="btn">Se déconnecter</button>
+        <button id="chatbot-btn" class="btn">Chatbot</button>
+        <button id="dark-mode-toggle">🌙 Dark Mode</button>
+      </div>
     </header>
 
     <div class="profil-container">
@@ -530,5 +588,28 @@
       createBoard();
     </script>
     <script src="{{ url_for('static', filename='js/Profile.js') }}"></script>
+    <script>
+      document
+        .getElementById("logout-btn")
+        .addEventListener("click", function () {
+          // Optionnel : ici tu peux ajouter du code pour supprimer un token/session si nécessaire
+          window.location.href = "/"; // Redirection vers la page de connexion
+        });
+    </script>
+
+    <script>
+      document
+        .getElementById("chatbot-btn")
+        .addEventListener("click", function () {
+          // Optionnel : ici tu peux ajouter du code pour supprimer un token/session si nécessaire
+          window.location.href = "/chatbot"; // Redirection vers la page de chatbot
+        });
+    </script>
+
+    <script>
+      window.addEventListener("load", () => {
+        document.body.classList.add("loaded");
+      });
+    </script>
   </body>
 </html>
