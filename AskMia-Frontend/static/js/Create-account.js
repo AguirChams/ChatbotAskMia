@@ -48,11 +48,18 @@ function createAccount(formId, redirectUrl) {
       const result = await response.json();
 
       if (result.success) {
-        alert("Compte créé avec succès !");
-        window.location.href = redirectUrl;
-      } else {
-        alert("Erreur : " + result.message );
+        const message = "Compte créé avec succès !\nNuméro étudiant : " + result.studentNumber;
+        
+        const display = document.getElementById("student-number-display");
+        if (display) {
+          display.innerText = message;
+        } else {
+          alert(message);
+        }
+      
       }
+      
+      
     } catch (error) {
       console.log("Erreur réseau :", error);
       alert("Erreur lors de la création du compte.");
@@ -62,5 +69,5 @@ function createAccount(formId, redirectUrl) {
 }
 
 
-createAccount("Logout", "/connexion");
+//createAccount("Logout", "/connexion");
 createAccount("Create-acc", "/creerCompte");

@@ -97,7 +97,12 @@ def api_create_account():
         success = models.create_new_etudiant(new_id, nom, prenom, birthdate_dt, password, classe)
 
         if success:
-            return jsonify({"success": True, "message": "Compte créé avec succès."})
+            return jsonify({
+                "success": True,
+                "message": "Compte créé avec succès.",
+                "studentNumber": new_id
+            })
+
         else:
             return jsonify({"success": False, "message": "Échec de la création du compte."})
 
