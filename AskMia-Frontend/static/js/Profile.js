@@ -44,7 +44,7 @@ function handleChangePassword(redirectUrl) {
       const studentId = localStorage.getItem("student_id"); // Assure-toi que c’est bien stocké
       console.log(ancienMdp, nouveauMdp, confirmationMdp);
       if (!studentId) {
-        alert("Erreur : Identifier vous.");
+        alert("Erreur : Identifiez vous.");
         window.location.href = "/";
         return;
       } else if (nouveauMdp !== confirmationMdp) {

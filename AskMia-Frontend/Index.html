@@ -265,6 +265,7 @@
           placeholder="Posez moi votre question..."
         />
         <button id="send-button">Entrer</button>
+        <button id="mic-button" title="Parler 🎤">🎤</button>
       </div>
     </div>
 
@@ -321,6 +322,57 @@
       window.addEventListener("load", () => {
         document.body.classList.add("loaded");
       });
+    </script>
+    <script>
+      const micButton = document.getElementById("mic-button");
+      const messageInput = document.getElementById("message-input");
+
+      const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+      if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.lang = "fr-FR";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        let isRecording = false;
+
+        micButton.addEventListener("click", () => {
+          if (!isRecording) {
+            recognition.start();
+            micButton.textContent = "🛑"; // Visuel : micro activé
+            isRecording = true;
+          } else {
+            recognition.stop();
+            micButton.textContent = "🎤"; // Visuel : micro désactivé
+            isRecording = false;
+          }
+        });
+
+        recognition.addEventListener("result", (event) => {
+          const transcript = event.results[0][0].transcript;
+          messageInput.value = transcript;
+        });
+
+        recognition.addEventListener("end", () => {
+          // Pour remettre le bouton en état OFF si reconnaissance se termine toute seule
+          if (isRecording) {
+            micButton.textContent = "🎤";
+            isRecording = false;
+          }
+        });
+
+        recognition.addEventListener("error", (e) => {
+          console.error("Erreur reconnaissance vocale :", e.error);
+          micButton.textContent = "🎤";
+          isRecording = false;
+        });
+      } else {
+        micButton.disabled = true;
+        micButton.title =
+          "Reconnaissance vocale non supportée par ce navigateur.";
+      }
     </script>
   </body>
 </html>
